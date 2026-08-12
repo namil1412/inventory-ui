@@ -77,6 +77,7 @@ const inventorySlots = Array.from({ length:INVENTORY_SLOT_COUNT }, () => null);
   { uid:'inv-tracking', itemId:'tracking', isNew:true },
   { uid:'inv-flame', itemId:'flameShot', isNew:false },
   { uid:'inv-potion', itemId:'potion', qty:3, isNew:false },
+  { uid:'inv-potion-extra', itemId:'potion', qty:8, isNew:false },
   { uid:'inv-pierce', itemId:'pierce', isNew:false },
   { uid:'inv-mana', itemId:'manaVial', qty:2, isNew:false },
   { uid:'inv-expand', itemId:'expand', isNew:false },
