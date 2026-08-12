@@ -1,2 +1,1328 @@
-<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/assets/index-Cj0EjHyC.css" data-rsc-css-href="/assets/index-Cj0EjHyC.css" data-precedence="vite-rsc/importer-resources"/><link rel="modulepreload" href="/assets/layout-segment-context-BRmgGGHe.js" crossorigin=""/><link rel="modulepreload" href="/assets/rolldown-runtime-S-ySWqyJ.js" crossorigin=""/><link rel="modulepreload" href="/assets/index-CtVXNBql.js" crossorigin=""/><link rel="modulepreload" href="/assets/framework-XU8gKkFC.js" crossorigin=""/><title>로그라이크 인벤토리 UI 미리보기</title><meta name="description" content="탑뷰 액션 로그라이크 RPG의 인벤토리 UI 인터랙티브 시안"/><link rel="shortcut icon" href="/favicon.svg"/><link rel="icon" href="/favicon.svg"/><meta name="codex-preview" content="development"/><script>self.__VINEXT_RSC_PARAMS__={}</script><script>self.__VINEXT_RSC_NAV__={"pathname":"/","searchParams":[]}</script><link rel="modulepreload" href="/assets/index-CtVXNBql.js" />
-</head><body><main class="preview-page"><section class="ai-readable-summary" aria-label="인벤토리 UI 설명"><h1>로그라이크 인벤토리 UI 미리보기</h1><p>탑뷰 액션 로그라이크 RPG의 인벤토리, 무기 선택, 룬 배열 편집, 아이템 사용 슬롯과 상세 정보 화면을 조작할 수 있는 공개 시안입니다.</p><a href="/ai-context.html">AI용 구조 및 조작 설명</a><a href="/inventory-ui-preview.html">인벤토리 UI 직접 열기</a></section><iframe class="preview-frame" src="/inventory-ui-preview.html" title="로그라이크 인벤토리 UI 미리보기" allow="fullscreen"></iframe></main><script id="_R_">import("/assets/index-CtVXNBql.js")</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2a14114ccac7447',t:'MTc4NjU1NjMxMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("2:I[\"8c0f216c4604\",[],\"Children\",1]\n3:I[\"15c18cfaeeff\",[],\"LayoutSegmentProvider\",1]\n4:I[\"8c0f216c4604\",[],\"Slot\",1]\n5:I[\"593f344dc510\",[],\"RedirectBoundary\",1]\n:HL[\"/assets/index-Cj0EjHyC.css\",\"style\"]\n0:{\"__route\":\"route:/\",\"__interceptionContext\":null,\"__layoutIds\":[\"layout:/\"],\"__rootLayout\":\"/\",\"page:/\":\"$L1\",\"layout:/\":[[[[\"$\",\"link\",\"css:/assets/index-Cj0EjHyC.css\",{\"rel\":\"stylesheet\",\"precedence\":\"vite-rsc/importer-resources\",\"href\":\"/assets/index-Cj0EjHyC.css\",\"data-rsc-css-href\":\"/assets/index-Cj0EjHyC.css\"}],\"$undefined\"],[\"$\",\"html\",null,{\"lang\":\"ko\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"$L2\",null,{}]}]}]],null],\"route:/\":[[[\"$\",\"meta\",null,{\"charSet\":\"utf-8\"}],[[\"$\",\"title\",\"0\",{\"children\":\"로그라이크 인벤토리 UI 미리보기\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"탑뷰 액션 로그라이크 RPG의 인벤토리 UI 인터랙티브 시안\"}],[\"$\",\"link\",\"2\",{\"rel\":\"shortcut icon\",\"href\":\"/favicon.svg\"}],[\"$\",\"link\",\"3\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\"}],[\"$\",\"meta\",\"4\",{\"name\":\"codex-preview\",\"content\":\"development\"}]],[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]],[\"$\",\"$L3\",null,{\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$L4\",null,{\"id\":\"layout:/\",\"parallelSlots\":\"$undefined\",\"children\":[\"$\",\"$L5\",null,{\"children\":[\"$\",\"$L3\",null,{\"segmentMap\":{\"children\":[]},\"children\":[\"$\",\"$L4\",null,{\"id\":\"page:/\"}]}]}]}]}]],\"__layoutFlags\":{\"layout:/\":\"s\"},\"__artifactCompatibility\":{\"schemaVersion\":1,\"graphVersion\":\"app-route-graph:4uhn5s1wvoptc\",\"deploymentVersion\":\"3fe23377-c4fc-4325-8c5c-890c9935cc89\",\"appElementsSchemaVersion\":1,\"rscPayloadSchemaVersion\":1,\"rootBoundaryId\":\"/\",\"renderEpoch\":null}}\n")</script><script>self.__VINEXT_RSC_CHUNKS__=self.__VINEXT_RSC_CHUNKS__||[];self.__VINEXT_RSC_CHUNKS__.push("1:[\"$\",\"main\",null,{\"className\":\"preview-page\",\"children\":[[\"$\",\"section\",null,{\"className\":\"ai-readable-summary\",\"aria-label\":\"인벤토리 UI 설명\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"로그라이크 인벤토리 UI 미리보기\"}],[\"$\",\"p\",null,{\"children\":\"탑뷰 액션 로그라이크 RPG의 인벤토리, 무기 선택, 룬 배열 편집, 아이템 사용 슬롯과 상세 정보 화면을 조작할 수 있는 공개 시안입니다.\"}],[\"$\",\"a\",null,{\"href\":\"/ai-context.html\",\"children\":\"AI용 구조 및 조작 설명\"}],[\"$\",\"a\",null,{\"href\":\"/inventory-ui-preview.html\",\"children\":\"인벤토리 UI 직접 열기\"}]]}],[\"$\",\"iframe\",null,{\"className\":\"preview-frame\",\"src\":\"/inventory-ui-preview.html\",\"title\":\"로그라이크 인벤토리 UI 미리보기\",\"allow\":\"fullscreen\"}]]}]\n")</script><script>self.__VINEXT_RSC_DONE__=true</script>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>로그라이크 인벤토리 UI 시안</title>
+  <style>
+    :root {
+      --ink: #0c0f12;
+      --panel: rgba(18, 21, 24, 0.94);
+      --panel-2: rgba(28, 31, 34, 0.95);
+      --line: rgba(230, 223, 204, 0.22);
+      --line-strong: rgba(230, 223, 204, 0.48);
+      --paper: #e9e2d1;
+      --muted: #948e82;
+      --gold: #d0a85b;
+      --gold-soft: rgba(208, 168, 91, 0.18);
+      --cyan: #73b8c0;
+      --crimson: #b5514d;
+      --purple: #9b74c6;
+      --green: #7da36c;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.62);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      color: var(--paper);
+      background: #090b0d;
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      user-select: none;
+    }
+
+    button { font: inherit; }
+
+    .game-world {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 48% 48%, rgba(95, 134, 139, 0.2), transparent 24%),
+        linear-gradient(145deg, #263033 0%, #141a1d 45%, #0e1113 100%);
+    }
+
+    .floor-grid {
+      position: absolute;
+      inset: -20%;
+      transform: rotate(-3deg) scale(1.06);
+      opacity: 0.62;
+      background-image:
+        linear-gradient(rgba(199, 192, 170, 0.1) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(199, 192, 170, 0.1) 2px, transparent 2px),
+        linear-gradient(rgba(0, 0, 0, 0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.22) 1px, transparent 1px);
+      background-size: 116px 116px, 116px 116px, 29px 29px, 29px 29px;
+    }
+
+    .world-wall {
+      position: absolute;
+      border: 4px solid #101416;
+      background: linear-gradient(135deg, #323b3e, #1b2225);
+      box-shadow: inset 0 0 0 2px rgba(220, 211, 188, 0.08), 0 14px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    .wall-a { width: 34%; height: 10%; left: 7%; top: 15%; transform: rotate(-2deg); }
+    .wall-b { width: 9%; height: 44%; right: 11%; top: 12%; transform: rotate(2deg); }
+    .wall-c { width: 27%; height: 9%; right: 16%; bottom: 12%; transform: rotate(-1deg); }
+
+    .world-character,
+    .world-enemy {
+      position: absolute;
+      border-radius: 44% 44% 38% 38%;
+      filter: drop-shadow(0 22px 9px rgba(0, 0, 0, 0.5));
+    }
+
+    .world-character {
+      width: 52px;
+      height: 72px;
+      left: 48%;
+      top: 48%;
+      background: linear-gradient(90deg, #c9c1ac 0 45%, #5a7d82 45% 100%);
+      border: 4px solid #101315;
+      transform: rotate(12deg);
+    }
+
+    .world-character::after {
+      content: "";
+      position: absolute;
+      width: 74px;
+      height: 7px;
+      right: -58px;
+      top: 26px;
+      border-radius: 6px;
+      background: #aaa28e;
+      border: 3px solid #101315;
+      transform: rotate(-18deg);
+    }
+
+    .world-enemy {
+      width: 62px;
+      height: 62px;
+      background: #823f43;
+      border: 4px solid #160e0f;
+    }
+
+    .enemy-a { left: 30%; top: 35%; transform: rotate(-16deg); }
+    .enemy-b { right: 29%; top: 31%; transform: rotate(9deg) scale(0.82); }
+    .enemy-c { right: 23%; bottom: 26%; transform: rotate(-8deg) scale(1.14); }
+
+    .world-hud {
+      position: absolute;
+      inset: 26px 34px auto 34px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      color: rgba(238, 232, 217, 0.75);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .hud-bars { width: 270px; }
+    .hud-line {
+      height: 12px;
+      margin-bottom: 8px;
+      border: 2px solid #0b0e10;
+      background: rgba(0, 0, 0, 0.55);
+      transform: skewX(-12deg);
+    }
+    .hud-line::before { content: ""; display: block; height: 100%; width: 74%; background: #a64643; }
+    .hud-line.mana::before { width: 58%; background: #4f939f; }
+
+    .pause-shade {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 7, 8, 0.62);
+      backdrop-filter: blur(5px) saturate(0.55);
+      transition: opacity 180ms ease;
+    }
+
+    .inventory-shell {
+      position: fixed;
+      inset: 50% auto auto 50%;
+      width: min(1720px, calc(100vw - 54px));
+      height: min(940px, calc(100vh - 48px));
+      transform: translate(-50%, -50%);
+      display: grid;
+      grid-template-rows: 76px minmax(0, 1fr);
+      border: 1px solid var(--line-strong);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.018), transparent 30%, rgba(255,255,255,0.012)),
+        rgba(11, 13, 15, 0.91);
+      box-shadow: var(--shadow), inset 0 0 0 5px rgba(0, 0, 0, 0.38);
+      animation: openPanel 260ms cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .inventory-shell::before,
+    .inventory-shell::after {
+      content: "";
+      position: absolute;
+      z-index: 4;
+      width: 34px;
+      height: 34px;
+      border-color: var(--gold);
+      pointer-events: none;
+    }
+
+    .inventory-shell::before { left: -5px; top: -5px; border-left: 3px solid; border-top: 3px solid; }
+    .inventory-shell::after { right: -5px; bottom: -5px; border-right: 3px solid; border-bottom: 3px solid; }
+
+    @keyframes openPanel {
+      from { opacity: 0; transform: translate(-50%, -48%) scale(0.985); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .top-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 0 24px 0 28px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(24, 27, 29, 0.88);
+    }
+
+    .top-title { font-family: Georgia, "Times New Roman", serif; font-size: 25px; letter-spacing: 0.06em; }
+    .top-actions { display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+
+    .close-button {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      color: var(--paper);
+      background: rgba(0,0,0,.2);
+      cursor: pointer;
+      transition: 140ms ease;
+    }
+
+    .close-button:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-soft); }
+
+    .workspace {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(360px, 0.92fr) minmax(560px, 1.46fr) minmax(330px, 0.9fr);
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .panel {
+      min-width: 0;
+      min-height: 0;
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.018);
+    }
+
+    .panel-title { font-size: 17px; font-weight: 800; letter-spacing: 0.08em; }
+    .panel-count { color: var(--muted); font-size: 14px; }
+
+    .discard-weapon-button {
+      padding: 8px 13px;
+      border: 1px solid rgba(196, 104, 98, .46);
+      color: #d8948f;
+      background: rgba(120, 42, 42, .12);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: 140ms ease;
+    }
+    .discard-weapon-button:hover {
+      border-color: #d27a74;
+      color: #fff0ed;
+      background: rgba(151, 55, 51, .28);
+    }
+
+    .storage-panel { display: grid; grid-template-rows: 62px 54px minmax(0,1fr) auto; }
+    .filter-row { display: flex; gap: 7px; padding: 10px 16px; border-bottom: 1px solid rgba(230,223,204,.11); }
+
+    .filter-button,
+    .sort-button {
+      min-width: 58px;
+      padding: 7px 12px;
+      border: 1px solid rgba(230,223,204,.15);
+      color: #aaa397;
+      background: rgba(255,255,255,.018);
+      cursor: pointer;
+      transition: 120ms ease;
+    }
+
+    .filter-button:hover,
+    .sort-button:hover { color: var(--paper); border-color: var(--line-strong); }
+    .filter-button.active { color: #17191b; border-color: var(--gold); background: var(--gold); font-weight: 800; }
+    .sort-button { margin-left: auto; min-width: 72px; }
+
+    .sort-select {
+      margin-left: auto;
+      min-width: 104px;
+      padding: 7px 28px 7px 10px;
+      border: 1px solid rgba(230,223,204,.15);
+      color: #d5cdbd;
+      background: #1a1d20;
+      cursor: pointer;
+    }
+
+    .use-slot-section { padding: 12px 15px 14px; border-top: 1px solid var(--line); background: rgba(255,255,255,.012); }
+    .use-slot-title { margin-bottom: 9px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+    .use-slots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .use-slot { aspect-ratio: 1; min-width: 0; border: 1px solid rgba(230,223,204,.18); background: rgba(5,7,8,.55); position: relative; cursor: pointer; }
+    .use-slot::after { content: attr(data-key); position: absolute; right: 4px; bottom: 3px; color: var(--muted); font-size: 9px; }
+    .use-slot.drop-ready { border-color: var(--gold); box-shadow: inset 0 0 18px var(--gold-soft); }
+    .use-slot .slot-icon { inset: 24%; }
+    .use-slot .slot-name { display: none; }
+
+    .held-rune {
+      position: fixed;
+      z-index: 30;
+      width: 58px;
+      height: 58px;
+      display: none;
+      pointer-events: none;
+      transform: translate(14px, 14px);
+      border: 1px solid var(--gold);
+      background: rgba(12,15,17,.94);
+      box-shadow: 0 10px 28px rgba(0,0,0,.55), 0 0 18px var(--gold-soft);
+    }
+    .held-rune.show { display: block; }
+    .held-rune .slot-icon { inset: 22%; }
+    body.dragging-weapon .pause-shade { outline: 2px dashed rgba(208,168,91,.75); outline-offset: -18px; }
+
+    .inventory-grid-wrap {
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding: 15px 12px 20px 15px;
+      scrollbar-gutter: stable;
+      scrollbar-width: auto;
+      scrollbar-color: var(--gold) rgba(255,255,255,.055);
+    }
+    .inventory-grid-wrap::-webkit-scrollbar { width: 10px; }
+    .inventory-grid-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,.055); border-left: 1px solid rgba(230,223,204,.08); }
+    .inventory-grid-wrap::-webkit-scrollbar-thumb { border: 2px solid #191c1e; background: var(--gold); }
+    .inventory-grid-wrap::-webkit-scrollbar-thumb:hover { background: #e1bd74; }
+
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(52px, 1fr));
+      gap: 8px;
+    }
+
+    .slot {
+      position: relative;
+      aspect-ratio: 1;
+      min-width: 0;
+      border: 1px solid rgba(230,223,204,.16);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.035), transparent 52%),
+        rgba(5,7,8,.45);
+      cursor: pointer;
+      transition: transform 100ms ease, border-color 100ms ease, background 100ms ease, box-shadow 100ms ease;
+    }
+
+    .slot::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(255,255,255,.035);
+      pointer-events: none;
+    }
+
+    .slot:hover { transform: translateY(-2px); border-color: rgba(230,223,204,.5); background-color: rgba(255,255,255,.035); }
+    .slot.selected { border-color: var(--gold); box-shadow: inset 0 0 18px var(--gold-soft), 0 0 0 1px rgba(208,168,91,.25); }
+    .slot.rare { border-color: rgba(115,184,192,.58); }
+    .slot.epic { border-color: rgba(155,116,198,.65); }
+    .slot.empty { cursor: pointer; opacity: .4; }
+    .slot.empty:hover { transform: none; border-color: rgba(230,223,204,.32); background: rgba(255,255,255,.025); }
+
+    .slot-icon,
+    .detail-icon {
+      position: absolute;
+      inset: 19%;
+      display: grid;
+      place-items: center;
+      color: #d9d1bf;
+      font-family: Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(14px, 1.15vw, 21px);
+      text-shadow: 0 0 14px currentColor;
+    }
+
+    .slot-icon.attack { transform: rotate(45deg); border: 2px solid currentColor; background: rgba(181,81,77,.13); }
+    .slot-icon.attack span { transform: rotate(-45deg); }
+    .slot-icon.enhance { border: 2px solid currentColor; border-radius: 50%; background: rgba(115,184,192,.11); }
+    .slot-icon.item { inset: 22% 30%; border: 2px solid currentColor; border-radius: 40% 40% 48% 48%; background: rgba(125,163,108,.15); }
+    .slot-icon.item::before { content: ""; position: absolute; width: 48%; height: 18%; top: -16%; border: 2px solid currentColor; background: #171b1d; }
+    .slot-icon.gold {
+      inset: 23%;
+      color: #e1b85f;
+      border: 3px double currentColor;
+      border-radius: 50%;
+      background: radial-gradient(circle at 36% 30%, #f4d98d, #b47b28 65%, #6c4217);
+      box-shadow: inset 0 0 0 3px rgba(67,39,11,.45), 0 0 15px rgba(208,168,91,.2);
+      text-shadow: 0 1px 0 #6b4219;
+    }
+
+    .slot-name {
+      position: absolute;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      overflow: hidden;
+      color: rgba(233,226,209,.78);
+      font-size: 9px;
+      line-height: 1;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .slot-qty { position: absolute; right: 5px; top: 4px; color: #fff7e3; font-size: 10px; font-weight: 800; }
+    .new-mark { position: absolute; left: 4px; top: 4px; padding: 2px 4px; color: #181512; background: var(--gold); font-size: 8px; font-weight: 900; letter-spacing: .06em; }
+
+    .center-panel { display: grid; grid-template-rows: 62px 212px minmax(0,1fr); }
+    .weapon-area { padding: 12px 18px 14px; border-bottom: 1px solid var(--line); overflow: hidden; }
+    .weapon-label-row { display: flex; margin-bottom: 8px; color: var(--muted); font-size: 13px; letter-spacing: .05em; }
+
+    .weapon-carousel {
+      position: relative;
+      height: 150px;
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) 42px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .weapon-list {
+      position: relative;
+      height: 146px;
+      overflow: hidden;
+      perspective: 900px;
+    }
+
+    .weapon-nav {
+      position: relative;
+      z-index: 8;
+      width: 42px;
+      height: 82px;
+      padding: 0;
+      color: #bcb4a3;
+      border: 1px solid rgba(230,223,204,.2);
+      background: linear-gradient(90deg, rgba(255,255,255,.035), rgba(0,0,0,.2));
+      cursor: pointer;
+      font: 400 30px/1 Georgia, serif;
+      transition: 140ms ease;
+    }
+
+    .weapon-nav:hover,
+    .weapon-nav:focus-visible {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      outline: none;
+      transform: scale(1.04);
+    }
+
+    .weapon-card {
+      position: absolute;
+      left: 50%;
+      top: 4px;
+      width: min(440px, 68%);
+      height: 140px;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      align-items: end;
+      padding: 10px 18px 12px;
+      overflow: hidden;
+      border: 1px solid rgba(230,223,204,.18);
+      color: var(--paper);
+      background: #15181a;
+      cursor: pointer;
+      text-align: left;
+      transform: translateX(-50%) scale(.78);
+      opacity: .3;
+      filter: saturate(.55);
+      will-change: transform, opacity;
+      transition: transform 340ms cubic-bezier(.2,.82,.2,1), opacity 260ms ease, filter 260ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .weapon-card.position-left { z-index: 1; transform: translateX(-105%) scale(.78) rotateY(13deg); transform-origin: right center; }
+    .weapon-card.position-right { z-index: 1; transform: translateX(5%) scale(.78) rotateY(-13deg); transform-origin: left center; }
+    .weapon-card.position-hidden { z-index: 0; transform: translateX(-50%) scale(.66); opacity: 0; pointer-events: none; }
+    .weapon-card.position-left:hover { opacity: .64; border-color: var(--line-strong); transform: translateX(-105%) scale(.8) rotateY(10deg); }
+    .weapon-card.position-right:hover { opacity: .64; border-color: var(--line-strong); transform: translateX(5%) scale(.8) rotateY(-10deg); }
+    .weapon-card.active {
+      z-index: 4;
+      opacity: 1;
+      filter: none;
+      transform: translateX(-50%) scale(1);
+      border-color: var(--gold);
+      background: linear-gradient(115deg, #27231b, #17191b 68%);
+      box-shadow: inset 0 0 22px rgba(208,168,91,.07), 0 13px 28px rgba(0,0,0,.34);
+    }
+    .weapon-card.active:hover { transform: translateX(-50%) translateY(-2px) scale(1); }
+    .weapon-card::after { content: ""; position: absolute; width: 80px; height: 80px; right: -36px; bottom: -42px; transform: rotate(45deg); border: 1px solid rgba(255,255,255,.05); }
+    .weapon-card.card-enter-forward { animation: cardEnterForward 260ms cubic-bezier(.2,.8,.2,1) both; }
+    .weapon-card.card-enter-backward { animation: cardEnterBackward 260ms cubic-bezier(.2,.8,.2,1) both; }
+
+    .weapon-index {
+      position: absolute;
+      z-index: 3;
+      left: 12px;
+      top: 11px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      border: 1px solid rgba(208,168,91,.5);
+      background: rgba(13,15,17,.88);
+      font: 800 14px/1 Georgia, serif;
+    }
+    .weapon-card.active .weapon-index { color: #171614; border-color: var(--gold); background: var(--gold); }
+
+    .weapon-art {
+      position: relative;
+      width: min(300px, 78%);
+      height: 78px;
+      display: block;
+      align-self: end;
+      justify-self: center;
+      opacity: .96;
+    }
+    .sword-art::before { content: ""; position: absolute; left: 22%; top: 30px; width: 70%; height: 13px; clip-path: polygon(0 28%, 86% 0, 100% 50%, 86% 100%, 0 72%); background: linear-gradient(#d9d2bd 0 42%, #797d79 44% 100%); transform: rotate(-4deg); box-shadow: 0 0 12px rgba(233,226,209,.18); }
+    .sword-art::after { content: ""; position: absolute; left: 7%; top: 25px; width: 24%; height: 19px; clip-path: polygon(0 34%, 58% 34%, 58% 0, 68% 0, 68% 34%, 100% 34%, 100% 66%, 68% 66%, 68% 100%, 58% 100%, 58% 66%, 0 66%); background: linear-gradient(90deg, #5b4632, var(--gold)); transform: rotate(-4deg); }
+    .pistol-art::before { content: ""; position: absolute; left: 14%; top: 21px; width: 73%; height: 29px; clip-path: polygon(0 18%, 78% 18%, 100% 39%, 94% 68%, 42% 68%, 35% 84%, 10% 84%, 12% 62%, 0 54%); background: linear-gradient(#b7b09d, #555a58); border: 3px solid #121516; }
+    .pistol-art::after { content: ""; position: absolute; left: 46%; top: 43px; width: 27px; height: 34px; transform: skewX(-14deg); background: #5f4b3b; border: 3px solid #121516; }
+    .axe-art::before { content: ""; position: absolute; left: 13%; top: 34px; width: 72%; height: 10px; border: 3px solid #111416; border-radius: 8px; background: linear-gradient(#7b5d3f, #463322); transform: rotate(-6deg); }
+    .axe-art::after { content: ""; position: absolute; right: 8%; top: 10px; width: 68px; height: 58px; clip-path: polygon(0 17%, 72% 0, 100% 12%, 91% 50%, 100% 88%, 72% 100%, 0 83%, 22% 50%); background: linear-gradient(90deg, #5d6261, #c9c3b1 62%, #777b77); border-left: 4px solid #111416; transform: rotate(-6deg); }
+    .rifle-art::before { content: ""; position: absolute; left: 8%; top: 24px; width: 84%; height: 27px; clip-path: polygon(0 31%, 17% 18%, 72% 18%, 80% 0, 85% 0, 87% 18%, 100% 25%, 100% 51%, 78% 60%, 42% 60%, 35% 82%, 14% 82%, 20% 58%, 0 60%); background: linear-gradient(#ada894, #4e5453); border: 3px solid #111416; }
+    .rifle-art::after { content: ""; position: absolute; left: 53%; top: 41px; width: 26px; height: 32px; transform: skewX(-14deg); background: #4c3c30; border: 3px solid #111416; }
+
+    .weapon-name { display: block; margin: 0; color: #eee6d4; font-size: 18px; font-weight: 800; letter-spacing: .04em; text-align: center; }
+
+    .rune-editor { min-height: 0; display: grid; grid-template-rows: 58px minmax(0,1fr); }
+    .editor-head { display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid rgba(230,223,204,.12); }
+    .editor-title { font-weight: 800; font-size: 16px; }
+    .editor-title span { color: var(--gold); }
+    .arrays {
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding: 16px 12px 16px 20px;
+      scrollbar-gutter: stable;
+      scrollbar-width: auto;
+      scrollbar-color: var(--gold) rgba(255,255,255,.055);
+    }
+    .arrays::-webkit-scrollbar { width: 10px; }
+    .arrays::-webkit-scrollbar-track { background: rgba(255,255,255,.055); border-left: 1px solid rgba(230,223,204,.08); }
+    .arrays::-webkit-scrollbar-thumb { border: 2px solid #191c1e; background: var(--gold); }
+    .arrays::-webkit-scrollbar-thumb:hover { background: #e1bd74; }
+
+    @keyframes cardEnterForward {
+      from { opacity: .45; transform: translateX(5%) scale(.78) rotateY(-13deg); }
+      to { opacity: 1; transform: translateX(-50%) scale(1) rotateY(0); }
+    }
+
+    @keyframes cardEnterBackward {
+      from { opacity: .45; transform: translateX(-105%) scale(.78) rotateY(13deg); }
+      to { opacity: 1; transform: translateX(-50%) scale(1) rotateY(0); }
+    }
+
+    .array-row {
+      position: relative;
+      min-height: 132px;
+      margin-bottom: 13px;
+      padding: 14px 15px 15px;
+      border: 1px solid rgba(230,223,204,.13);
+      background: linear-gradient(90deg, rgba(255,255,255,.025), rgba(255,255,255,.006));
+    }
+
+    .array-row:last-child { margin-bottom: 0; }
+    .array-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .array-label { display: flex; align-items: center; gap: 8px; color: #c5bdad; font-size: 13px; letter-spacing: .08em; }
+    .array-num { display: grid; place-items: center; width: 19px; height: 19px; color: #191a1a; background: var(--gold); font: 800 11px Georgia, serif; }
+    .mana-cost { color: var(--cyan); font-size: 13px; }
+
+    .socket-line { position: relative; display: flex; justify-content: flex-start; align-items: center; gap: 34px; padding-left: 8px; }
+    .socket-line::before { content: ""; position: absolute; left: 39px; width: var(--line-width, 0px); top: 50%; height: 2px; background: linear-gradient(90deg, var(--crimson), rgba(230,223,204,.24) 24%, rgba(230,223,204,.18)); }
+
+    .rune-socket {
+      position: relative;
+      z-index: 1;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: var(--muted);
+      border: 2px solid rgba(230,223,204,.25);
+      background: #171a1c;
+      cursor: pointer;
+      transition: 130ms ease;
+    }
+
+    .rune-socket.attack { transform: rotate(45deg) scale(.8); border-color: rgba(181,81,77,.72); }
+    .rune-socket.attack .socket-content { transform: rotate(-45deg) scale(1.25); }
+    .rune-socket.enhance { border-radius: 50%; border-color: rgba(115,184,192,.55); }
+    .rune-socket:hover { border-color: var(--paper); box-shadow: 0 0 18px rgba(233,226,209,.15); }
+    .rune-socket.compatible { animation: compatiblePulse 1.25s ease-in-out infinite; }
+    .rune-socket.incompatible { opacity: .35; }
+    .rune-socket.filled { color: var(--paper); background: radial-gradient(circle, rgba(115,184,192,.15), #171a1c 62%); }
+    .rune-socket.attack.filled { background: radial-gradient(circle, rgba(181,81,77,.19), #171a1c 62%); }
+    .rune-socket.focused { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .rune-socket[draggable="true"],
+    .slot[draggable="true"] { cursor: grab; }
+    .rune-socket[draggable="true"]:active,
+    .slot[draggable="true"]:active { cursor: grabbing; }
+    .rune-socket.drag-source,
+    .slot.drag-source { opacity: .36; }
+    .rune-socket.drop-ready {
+      animation: none;
+      opacity: 1;
+      border-color: var(--gold);
+      background: radial-gradient(circle, rgba(208,168,91,.23), #171a1c 66%);
+      box-shadow: 0 0 0 5px rgba(208,168,91,.08), 0 0 24px rgba(208,168,91,.34);
+    }
+    .slot.drop-ready {
+      opacity: 1;
+      border-color: var(--gold);
+      background: radial-gradient(circle, rgba(208,168,91,.2), rgba(5,7,8,.52) 68%);
+      box-shadow: inset 0 0 18px rgba(208,168,91,.15), 0 0 0 2px rgba(208,168,91,.34);
+    }
+    .inventory-grid-wrap.drop-ready {
+      background: rgba(208,168,91,.055);
+      box-shadow: inset 0 0 0 2px rgba(208,168,91,.45), inset 0 0 34px rgba(208,168,91,.08);
+    }
+    body.dragging-entry .inventory-grid-wrap,
+    body.dragging-entry .rune-socket,
+    body.dragging-entry .slot { transition: 100ms ease; }
+
+    @keyframes compatiblePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(208,168,91,.1), 0 0 9px rgba(208,168,91,.08); border-color: rgba(208,168,91,.52); }
+      50% { box-shadow: 0 0 0 5px rgba(208,168,91,.06), 0 0 22px rgba(208,168,91,.22); border-color: var(--gold); }
+    }
+
+    .socket-content { width: 100%; display: grid; justify-items: center; gap: 3px; pointer-events: none; }
+    .socket-sigil { font: 800 17px Georgia, serif; text-shadow: 0 0 10px currentColor; }
+    .socket-name { max-width: 62px; overflow: hidden; color: #b9b2a5; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+    .socket-empty { color: #66635d; font: 400 18px Georgia, serif; }
+
+    .details-panel { display: grid; grid-template-rows: 62px minmax(0,1fr); }
+    .details-content { min-height: 0; overflow: auto; padding: 22px 22px 26px; scrollbar-width: thin; scrollbar-color: #5a554b transparent; }
+
+    .detail-hero {
+      position: relative;
+      height: 154px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border: 1px solid rgba(230,223,204,.12);
+      background:
+        radial-gradient(circle, rgba(208,168,91,.1), transparent 48%),
+        linear-gradient(135deg, rgba(255,255,255,.03), rgba(0,0,0,.1));
+      overflow: hidden;
+    }
+
+    .detail-hero::before,
+    .detail-hero::after { content: ""; position: absolute; width: 96px; height: 96px; border: 1px solid rgba(230,223,204,.06); transform: rotate(45deg); }
+    .detail-hero::before { left: -58px; top: -58px; }
+    .detail-hero::after { right: -58px; bottom: -58px; }
+
+    .detail-symbol {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      color: var(--paper);
+      font: 800 30px Georgia, serif;
+      text-shadow: 0 0 20px currentColor;
+      border: 3px solid currentColor;
+    }
+    .detail-symbol.attack { transform: rotate(45deg) scale(.78); color: #c46862; }
+    .detail-symbol.attack span { transform: rotate(-45deg) scale(1.28); }
+    .detail-symbol.enhance { color: #7fc4cc; border-radius: 50%; }
+    .detail-symbol.item { width: 62px; color: #8fb57d; border-radius: 40% 40% 48% 48%; }
+    .detail-symbol.gold { width: 76px; height: 76px; color: #e4b75a; border-radius: 50%; border-style: double; background: radial-gradient(circle at 36% 30%, rgba(244,217,141,.36), rgba(180,123,40,.14) 65%, transparent); }
+    .detail-symbol.weapon { width: 108px; height: 24px; border-width: 2px; transform: rotate(-25deg); color: #d6cfbd; }
+    .detail-symbol.weapon span { transform: rotate(25deg); font-size: 14px; }
+
+    .rarity { display: inline-flex; align-items: center; gap: 7px; color: var(--cyan); font-size: 12px; font-weight: 800; letter-spacing: .1em; }
+    .rarity::before { content: ""; width: 7px; height: 7px; transform: rotate(45deg); background: currentColor; }
+    .rarity.common { color: #b5aea0; }
+    .rarity.epic { color: var(--purple); }
+    .detail-name { margin: 8px 0 7px; font: 700 24px Georgia, "Noto Serif KR", serif; line-height: 1.25; }
+    .detail-sub { color: var(--muted); font-size: 13px; }
+    .detail-rule { height: 1px; margin: 18px 0; background: linear-gradient(90deg, var(--line-strong), transparent); }
+    .detail-description { margin: 0; color: #c6beaf; font-size: 14px; line-height: 1.75; word-break: keep-all; }
+
+    .stat-list { display: grid; gap: 9px; }
+    .stat-row { display: grid; grid-template-columns: 96px 1fr auto; align-items: center; gap: 10px; color: #aaa397; font-size: 13px; }
+    .stat-track { height: 4px; overflow: hidden; background: rgba(255,255,255,.07); }
+    .stat-track span { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), #b8d6d7); }
+    .stat-value { min-width: 34px; color: var(--paper); text-align: right; font-weight: 800; }
+    .property-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .property { padding: 9px 10px; border: 1px solid rgba(230,223,204,.11); background: rgba(255,255,255,.018); }
+    .property-label { color: var(--muted); font-size: 11px; }
+    .property-value { margin-top: 4px; color: #d3cbbb; font-size: 14px; font-weight: 800; }
+
+    .effect-box { margin-top: 13px; padding: 12px 13px; border-left: 2px solid var(--gold); background: var(--gold-soft); color: #cfc6b4; font-size: 13px; line-height: 1.6; }
+    .effect-box strong { display: block; margin-bottom: 3px; color: var(--gold); font-size: 12px; letter-spacing: .08em; }
+    .detail-hint { margin-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .details-content.empty { padding: 0; }
+
+    .control-hints { display: flex; gap: 18px; }
+    .key { display: inline-grid; min-width: 22px; height: 20px; place-items: center; margin-right: 6px; padding: 0 5px; color: var(--paper); border: 1px solid rgba(230,223,204,.24); background: rgba(255,255,255,.025); font-size: 9px; }
+
+    .toast {
+      position: fixed;
+      z-index: 30;
+      left: 50%;
+      bottom: 54px;
+      transform: translate(-50%, 20px);
+      padding: 10px 16px;
+      color: #e7dfce;
+      border: 1px solid var(--gold);
+      background: rgba(14,16,18,.96);
+      box-shadow: 0 12px 36px rgba(0,0,0,.5);
+      font-size: 11px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 180ms ease;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .reopen {
+      position: fixed;
+      z-index: 40;
+      left: 50%;
+      bottom: 42px;
+      transform: translateX(-50%);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      color: var(--paper);
+      border: 1px solid var(--line-strong);
+      background: rgba(13,15,17,.86);
+      box-shadow: 0 15px 38px rgba(0,0,0,.4);
+      cursor: pointer;
+    }
+    .reopen:hover { border-color: var(--gold); }
+
+    body.closed .inventory-shell,
+    body.closed .pause-shade { display: none; }
+    body.closed .reopen { display: flex; }
+
+    @media (max-width: 1280px) {
+      .workspace { grid-template-columns: 320px minmax(500px, 1fr) 315px; }
+      .inventory-grid { grid-template-columns: repeat(4, minmax(54px, 1fr)); }
+      .weapon-card { width: min(390px, 72%); }
+    }
+
+    @media (max-height: 760px) {
+      .inventory-shell { height: calc(100vh - 24px); }
+      .center-panel { grid-template-rows: 56px 184px minmax(0,1fr); }
+      .weapon-area { padding-top: 8px; }
+      .weapon-carousel { height: 132px; }
+      .weapon-list { height: 128px; }
+      .weapon-nav { height: 68px; }
+      .weapon-card { top: 5px; height: 116px; }
+      .weapon-art { height: 62px; transform: scale(.88); }
+      .array-row { min-height: 116px; }
+      .details-content { padding-top: 15px; }
+      .detail-hero { height: 108px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="game-world" aria-hidden="true">
+    <div class="floor-grid"></div>
+    <div class="world-wall wall-a"></div>
+    <div class="world-wall wall-b"></div>
+    <div class="world-wall wall-c"></div>
+    <div class="world-character"></div>
+    <div class="world-enemy enemy-a"></div>
+    <div class="world-enemy enemy-b"></div>
+    <div class="world-enemy enemy-c"></div>
+    <div class="world-hud">
+      <div class="hud-bars"><div class="hud-line"></div><div class="hud-line mana"></div></div>
+      <div>18층 · 봉인 연구동</div>
+    </div>
+  </div>
+
+  <div class="pause-shade" ondragover="allowWeaponDiscard(event)" ondrop="discardDraggedWeapon(event)"></div>
+
+  <main class="inventory-shell" aria-label="인벤토리">
+    <header class="top-bar">
+      <div class="top-title">인벤토리</div>
+      <div class="top-actions">
+        <button class="close-button" type="button" aria-label="인벤토리 닫기" onclick="toggleInventory(false)">X</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <section class="panel storage-panel" aria-labelledby="storageTitle">
+        <div class="panel-head">
+          <div class="panel-title" id="storageTitle">보관함</div>
+        </div>
+        <div class="filter-row" role="tablist" aria-label="보관함 분류">
+          <button class="filter-button active" data-filter="all" onclick="setFilter('all', this)">전체</button>
+          <button class="filter-button" data-filter="rune" onclick="setFilter('rune', this)">룬</button>
+          <button class="filter-button" data-filter="item" onclick="setFilter('item', this)">아이템</button>
+          <select class="sort-select" id="sortMode" aria-label="자동 정렬 기준" onchange="sortInventory(this.value)">
+            <option value="acquired">획득순</option>
+            <option value="type">종류순</option>
+            <option value="name">이름순</option>
+            <option value="rarity">등급순</option>
+          </select>
+        </div>
+        <div class="inventory-grid-wrap" id="inventoryDropZone" onclick="handleInventoryBlankClick(event)" ondragover="allowInventoryDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnInventory(event)">
+          <div class="inventory-grid" id="inventoryGrid"></div>
+        </div>
+        <div class="use-slot-section">
+          <div class="use-slot-title">아이템 사용 슬롯</div>
+          <div class="use-slots" id="useSlots"></div>
+        </div>
+      </section>
+
+      <section class="panel center-panel" aria-labelledby="loadoutTitle">
+        <div class="panel-head">
+          <div class="panel-title" id="loadoutTitle">무기 슬롯</div>
+          <button class="discard-weapon-button" type="button" onclick="discardSelectedWeapon()">무기 버리기</button>
+        </div>
+        <div class="weapon-area">
+          <div class="weapon-label-row"><span>장착 무기 선택</span></div>
+          <div class="weapon-carousel" aria-label="장착 무기 카드 선택">
+            <button class="weapon-nav" type="button" onclick="cycleWeapon(-1)" aria-label="이전 무기">‹</button>
+            <div class="weapon-list" id="weaponList"></div>
+            <button class="weapon-nav" type="button" onclick="cycleWeapon(1)" aria-label="다음 무기">›</button>
+          </div>
+        </div>
+
+        <div class="rune-editor">
+          <div class="editor-head">
+            <div class="editor-title"><span id="editingWeapon">정제 장검</span> 룬 배열</div>
+          </div>
+          <div class="arrays" id="arrayList"></div>
+        </div>
+      </section>
+
+      <aside class="panel details-panel" aria-labelledby="detailTitle">
+        <div class="panel-head">
+          <div class="panel-title" id="detailTitle">상세 정보</div>
+          <div class="panel-count" id="detailKind">룬</div>
+        </div>
+        <div class="details-content" id="detailsContent"></div>
+      </aside>
+    </div>
+
+  </main>
+
+  <button class="reopen" type="button" aria-keyshortcuts="E" onclick="toggleInventory(true)"><span class="key">E</span> 인벤토리 열기</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="held-rune" id="heldRune" aria-hidden="true"></div>
+
+  <script type="text/plain" id="legacy-inventory-script">
+    const runeCatalog = {
+      slashWave: { id:'slashWave', kind:'rune', socket:'attack', name:'검기', sigil:'V', rarity:'rare', rarityLabel:'희귀', category:'공격룬 · 근접 전용', mana:18, desc:'무기를 휘두른 방향으로 날카로운 검기를 발사합니다.', stats:[['피해 배율','145%'],['유효 거리','보통'],['마나 소모','18']], effect:'룬 배열의 공격 형태를 검기 발사로 변경합니다.' },
+      spinSlash: { id:'spinSlash', kind:'rune', socket:'attack', name:'회전 베기', sigil:'O', rarity:'common', rarityLabel:'일반', category:'공격룬 · 근접 전용', mana:14, desc:'플레이어를 중심으로 넓은 범위를 한 번 베어냅니다.', stats:[['피해 배율','120%'],['공격 범위','넓음'],['마나 소모','14']], effect:'근접한 다수의 적을 상대하기 좋은 범위 공격입니다.' },
+      flameShot: { id:'flameShot', kind:'rune', socket:'attack', name:'화염탄', sigil:'F', rarity:'epic', rarityLabel:'상급', category:'트리거 공격룬 · 원거리 전용', mana:24, desc:'충돌하거나 지속 시간이 끝나면 다음 룬 배열을 이어서 발동하는 화염탄을 발사합니다.', stats:[['피해 배율','135%'],['지속 시간','2.0초'],['마나 소모','24']], effect:'공격이 종료되면 다음 배열을 즉시 연결합니다.' },
+      manaBolt: { id:'manaBolt', kind:'rune', socket:'attack', name:'마나 관통탄', sigil:'M', rarity:'rare', rarityLabel:'희귀', category:'공격룬 · 원거리 전용', mana:17, desc:'압축한 마나를 직선으로 발사해 한 줄의 적을 꿰뚫습니다.', stats:[['피해 배율','128%'],['유효 거리','김'],['마나 소모','17']], effect:'직선상에 있는 적을 연속해서 타격합니다.' },
+      iceBurst: { id:'iceBurst', kind:'rune', socket:'attack', name:'빙결 폭발', sigil:'*', rarity:'epic', rarityLabel:'상급', category:'공격룬 · 원거리 전용', mana:22, desc:'착탄 지점에서 차가운 마나를 폭발시켜 주변의 적을 공격합니다.', stats:[['피해 배율','118%'],['공격 범위','넓음'],['마나 소모','22']], effect:'피격된 적의 이동 속도를 잠시 낮춥니다.' },
+      pierce: { id:'pierce', kind:'rune', socket:'enhance', name:'관통', sigil:'I', rarity:'rare', rarityLabel:'희귀', category:'강화룬 · 범용', mana:7, desc:'같은 배열의 공격이 적을 관통해 뒤의 대상까지 이어집니다.', stats:[['관통 횟수','+2'],['피해 감소','-10%'],['마나 소모','7']], effect:'발사체 또는 직선형 공격에 관통 성질을 추가합니다.' },
+      power: { id:'power', kind:'rune', socket:'enhance', name:'피해 증가', sigil:'+', rarity:'common', rarityLabel:'일반', category:'강화룬 · 범용', mana:5, desc:'같은 배열에 장착된 공격룬의 최종 피해량을 증가시킵니다.', stats:[['피해 증가','+22%'],['마나 소모','5'],['중첩','가능']], effect:'단순하지만 어떤 공격에도 안정적으로 적용되는 강화룬입니다.' },
+      expand: { id:'expand', kind:'rune', socket:'enhance', name:'범위 증가', sigil:'○', rarity:'rare', rarityLabel:'희귀', category:'강화룬 · 범용', mana:8, desc:'같은 배열의 공격 범위를 넓혀 더 많은 적을 타격합니다.', stats:[['범위 증가','+28%'],['마나 소모','8'],['적용 방식','곱연산']], effect:'범위형 공격이나 폭발 공격에 특히 효과적입니다.' },
+      tracking: { id:'tracking', kind:'rune', socket:'enhance', name:'추적', sigil:'~', rarity:'epic', rarityLabel:'상급', category:'강화룬 · 원거리 전용', mana:11, desc:'발사체가 가까운 적을 향해 궤도를 보정합니다.', stats:[['추적 강도','높음'],['탐색 범위','보통'],['마나 소모','11']], effect:'빠르게 이동하는 적에게 발사체가 빗나갈 위험을 줄입니다.' },
+      ricochet: { id:'ricochet', kind:'rune', socket:'enhance', name:'튕김', sigil:'Z', rarity:'rare', rarityLabel:'희귀', category:'강화룬 · 원거리 전용', mana:9, desc:'적중한 발사체가 주변의 다른 적에게 한 번 튕깁니다.', stats:[['튕김 횟수','+1'],['탐색 범위','짧음'],['마나 소모','9']], effect:'좁은 공간에서 여러 적을 상대할 때 효율이 높습니다.' },
+      split: { id:'split', kind:'rune', socket:'enhance', name:'복제', sigil:'Y', rarity:'epic', rarityLabel:'상급', category:'강화룬 · 범용', mana:13, desc:'공격 효과를 복제해 좌우로 하나씩 추가 생성합니다.', stats:[['복제 수','+2'],['개별 피해','70%'],['마나 소모','13']], effect:'공격 범위를 크게 넓히지만 배열의 마나 소모도 증가합니다.' }
+    };
+
+    const itemCatalog = {
+      potion: { id:'potion', kind:'item', name:'응급 회복약', sigil:'H', rarity:'common', rarityLabel:'일반', category:'소모 아이템', qty:3, desc:'복용하면 잃은 체력의 일부를 즉시 회복합니다. 사용 중에는 이동 속도가 감소합니다.', stats:[['회복량','최대 체력 30%'],['사용 시간','1.2초'],['사용 키','C 길게 누르기']], effect:'사용 도중 키를 놓거나 공격받아 행동이 취소되면 소모하지 않습니다.' },
+      manaVial: { id:'manaVial', kind:'item', name:'마나 응축액', sigil:'M', rarity:'rare', rarityLabel:'희귀', category:'소모 아이템', qty:2, desc:'응축된 마나를 흡수해 현재 마나를 빠르게 회복합니다.', stats:[['마나 회복','45'],['사용 시간','0.9초'],['사용 키','C 길게 누르기']], effect:'룬 배열을 많이 사용하는 전투에서 마나 흐름을 회복할 수 있습니다.' },
+      sanctuary: { id:'sanctuary', kind:'item', name:'성소의 잔향', sigil:'S', rarity:'epic', rarityLabel:'상급', category:'특수 아이템', qty:1, desc:'희미한 천사의 힘이 남아 있는 성소의 파편입니다.', stats:[['성향','빛'],['보유 효과','활성'],['중첩','불가']], effect:'보유한 동안 천사 계열 보상과 관련된 변화가 발생할 수 있습니다.' },
+      core: { id:'core', kind:'item', name:'오염된 핵', sigil:'C', rarity:'rare', rarityLabel:'희귀', category:'선택 아이템', qty:1, desc:'악마의 힘이 응축된 불안정한 핵입니다. 전투 후 파괴할 수 있습니다.', stats:[['상태','불안정'],['선택','파괴 가능'],['중첩','불가']], effect:'파괴 선택은 영혼의 빛 성향에 영향을 줄 수 있습니다.' }
+    };
+
+    const weapons = {
+      sword: {
+        id:'sword', name:'정제 장검', type:'장검 · 밸런스형', art:'sword-art', arrays:2, enhanceSlots:2, tags:['공격력 52','공격 속도 보통','무게 7'],
+        desc:'룬 각인자를 위해 균형 있게 제작된 장검입니다. 빠르지도 느리지도 않아 다양한 룬 조합을 안정적으로 시험할 수 있습니다.',
+        rarity:'rare', rarityLabel:'희귀', category:'근접 무기 · 장검',
+        stats:[['공격력',68,52],['공격 속도',57,'보통'],['무게',46,7]],
+        properties:[['룬 배열','2개'],['강화 소켓','배열당 2개'],['유효 거리','짧음'],['고유 효과','안정된 각인']],
+        effect:'안정된 각인 · 각 배열의 첫 번째 강화룬 마나 소모량이 1 감소합니다.',
+        loadout:[
+          { attack:'slashWave', enhance:['pierce','power'] },
+          { attack:'spinSlash', enhance:['expand',null] }
+        ]
+      },
+      pistol: {
+        id:'pistol', name:'연구원 권총', type:'권총 · 기동형', art:'pistol-art', arrays:2, enhanceSlots:1, tags:['공격력 31','공격 속도 빠름','탄창 10'],
+        desc:'마탑 연구원들이 호신용으로 사용하던 가벼운 권총입니다. 공격을 자주 반복해 룬 효과를 빠르게 순환시키는 데 적합합니다.',
+        rarity:'common', rarityLabel:'일반', category:'원거리 무기 · 권총',
+        stats:[['공격력',42,31],['공격 속도',82,'빠름'],['무게',22,3]],
+        properties:[['룬 배열','2개'],['강화 소켓','배열당 1개'],['유효 거리','보통'],['탄창','10발']],
+        effect:'빠른 재정렬 · 무기 교체 후 첫 재장전 시간이 짧아집니다.',
+        loadout:[
+          { attack:'flameShot', enhance:['tracking'] },
+          { attack:null, enhance:[null] }
+        ]
+      },
+      axe: {
+        id:'axe', name:'파쇄 도끼', type:'도끼 · 중량형', art:'axe-art', arrays:3, enhanceSlots:3, tags:['공격력 74','공격 속도 느림','무게 12'],
+        desc:'두꺼운 갑주와 오염된 구조물을 부수기 위해 제작된 중량 도끼입니다. 한 번의 공격에 큰 힘을 집중합니다.',
+        rarity:'rare', rarityLabel:'희귀', category:'근접 무기 · 도끼',
+        stats:[['공격력',91,74],['공격 속도',28,'느림'],['무게',78,12]],
+        properties:[['룬 배열','3개'],['강화 소켓','배열당 3개'],['유효 거리','짧음'],['고유 효과','충격 축적']],
+        effect:'충격 축적 · 느린 기본 공격이 적에게 주는 경직이 증가합니다.',
+        loadout:[
+          { attack:'spinSlash', enhance:['power','expand',null] },
+          { attack:'slashWave', enhance:['pierce',null,null] },
+          { attack:null, enhance:[null,null,null] }
+        ]
+      },
+      rifle: {
+        id:'rifle', name:'봉인 연구 소총', type:'소총 · 정밀형', art:'rifle-art', arrays:4, enhanceSlots:4, tags:['공격력 46','공격 속도 보통','탄창 18'],
+        desc:'봉인 연구동의 장거리 교전을 위해 조정된 마나 소총입니다. 네 개의 룬 배열을 순환시켜 복합 공격을 구성할 수 있습니다.',
+        rarity:'epic', rarityLabel:'상급', category:'원거리 무기 · 소총',
+        stats:[['공격력',63,46],['공격 속도',64,'보통'],['무게',47,7]],
+        properties:[['룬 배열','4개'],['강화 소켓','배열당 4개'],['유효 거리','김'],['탄창','18발']],
+        effect:'연속 각인 · 네 번째 배열 발동 후 첫 번째 배열의 마나 소모량이 잠시 감소합니다.',
+        loadout:[
+          { attack:'flameShot', enhance:['tracking','pierce',null,null] },
+          { attack:'manaBolt', enhance:['ricochet','power',null,null] },
+          { attack:'iceBurst', enhance:['expand','split',null,null] },
+          { attack:null, enhance:[null,null,null,null] }
+        ]
+      }
+    };
+
+    let inventorySerial = 20;
+    let inventoryOrder = [
+      { instanceId:'inv-power-1', catalogId:'power' },
+      { instanceId:'inv-power-2', catalogId:'power' },
+      { instanceId:'inv-tracking-1', catalogId:'tracking' },
+      { instanceId:'inv-tracking-2', catalogId:'tracking' },
+      { instanceId:'inv-flame-1', catalogId:'flameShot' },
+      { instanceId:'inv-potion-1', catalogId:'potion' },
+      { instanceId:'inv-pierce-1', catalogId:'pierce' },
+      { instanceId:'inv-mana-1', catalogId:'manaVial' },
+      { instanceId:'inv-expand-1', catalogId:'expand' },
+      { instanceId:'inv-ricochet-1', catalogId:'ricochet' },
+      { instanceId:'inv-split-1', catalogId:'split' },
+      { instanceId:'inv-sanctuary-1', catalogId:'sanctuary' },
+      { instanceId:'inv-core-1', catalogId:'core' },
+      { instanceId:'inv-slash-1', catalogId:'slashWave' }
+    ];
+    let activeFilter = 'all';
+    let selectedInventory = 'inv-tracking-1';
+    let selectedWeapon = 'rifle';
+    let focusedSocket = null;
+    let detailSelection = { type:'inventory', id:'tracking' };
+    let dragPayload = null;
+    let toastTimer;
+
+    function allCatalog() { return { ...runeCatalog, ...itemCatalog }; }
+    function inventoryEntry(instanceId) { return inventoryOrder.find(entry => entry.instanceId === instanceId) || null; }
+
+    function renderInventory() {
+      const catalog = allCatalog();
+      const grid = document.getElementById('inventoryGrid');
+      const visible = inventoryOrder.filter(entry => {
+        const item = catalog[entry.catalogId];
+        return activeFilter === 'all' || item.kind === activeFilter;
+      });
+
+      grid.innerHTML = visible.map((entry, index) => {
+        const item = catalog[entry.catalogId];
+        const iconClass = item.kind === 'item' ? 'item' : item.socket;
+        const icon = `<div class="slot-icon ${iconClass}"><span>${item.sigil}</span></div>`;
+        const draggable = item.kind === 'rune';
+        return `<button class="slot ${item.rarity} ${selectedInventory === entry.instanceId ? 'selected' : ''}" type="button" onclick="selectInventory('${entry.instanceId}')" draggable="${draggable}" ${draggable ? `ondragstart="startInventoryDrag(event, '${entry.instanceId}')" ondragend="endRuneDrag(event)"` : ''} aria-label="${item.name}${draggable ? ' 룬 · 독립 보관 슬롯' : ''}">
+          ${index === 0 && item.kind === 'rune' ? '<span class="new-mark">NEW</span>' : ''}
+          ${item.kind === 'item' && item.qty && item.qty > 1 ? `<span class="slot-qty">${item.qty}</span>` : ''}
+          ${icon}<span class="slot-name">${item.name}</span>
+        </button>`;
+      }).join('');
+
+      const filler = Math.max(0, 70 - visible.length);
+      grid.insertAdjacentHTML('beforeend', Array.from({length:filler}, () => '<div class="slot empty" aria-hidden="true"></div>').join(''));
+    }
+
+    function renderWeapons() {
+      const list = document.getElementById('weaponList');
+      const weaponList = Object.values(weapons);
+      const selectedIndex = weaponList.findIndex(weapon => weapon.id === selectedWeapon);
+      if (!list.children.length) {
+        list.innerHTML = weaponList.map((w, index) => `
+          <button class="weapon-card position-hidden" data-weapon-id="${w.id}" type="button" onclick="selectWeapon('${w.id}')" aria-label="무기 ${index + 1} · ${w.name}">
+            <span class="weapon-index" aria-hidden="true">${index + 1}</span>
+            <span class="weapon-art ${w.art}"></span>
+            <span class="weapon-name">${w.name}</span>
+          </button>`).join('');
+      }
+      weaponList.forEach((w, index) => {
+        let position = 'position-hidden';
+        if (index === selectedIndex) position = 'active';
+        else if (weaponList.length === 2) position = index < selectedIndex ? 'position-left' : 'position-right';
+        else if (index === (selectedIndex - 1 + weaponList.length) % weaponList.length) position = 'position-left';
+        else if (index === (selectedIndex + 1) % weaponList.length) position = 'position-right';
+        const card = list.querySelector(`[data-weapon-id="${w.id}"]`);
+        card.className = `weapon-card ${position}`;
+        card.setAttribute('aria-pressed', String(selectedWeapon === w.id));
+      });
+    }
+
+    function cycleWeapon(direction) {
+      const ids = Object.keys(weapons);
+      const currentIndex = ids.indexOf(selectedWeapon);
+      const nextIndex = (currentIndex + direction + ids.length) % ids.length;
+      selectWeapon(ids[nextIndex]);
+    }
+
+    function runeById(id) { return id ? runeCatalog[id] : null; }
+
+    function renderArrays() {
+      const weapon = weapons[selectedWeapon];
+      document.getElementById('editingWeapon').textContent = weapon.name;
+      const list = document.getElementById('arrayList');
+      list.innerHTML = weapon.loadout.map((array, arrayIndex) => {
+        const ids = [array.attack, ...array.enhance];
+        const cost = ids.reduce((sum, id) => sum + (runeById(id)?.mana || 0), 0);
+        const socketCount = 1 + array.enhance.length;
+        const lineWidth = socketCount > 1 ? 108 + Math.max(0, socketCount - 2) * 100 : 0;
+        return `<section class="array-row">
+          <div class="array-header">
+            <div class="array-label"><span class="array-num">${arrayIndex + 1}</span>룬 배열 ${arrayIndex + 1}</div>
+            <div class="mana-cost">마나 ${cost}</div>
+          </div>
+          <div class="socket-line" style="--line-width:${lineWidth}px;grid-template-columns:74px repeat(${array.enhance.length},66px)">
+            ${socketButton(arrayIndex, 'attack', 0, array.attack)}
+            ${array.enhance.map((id, socketIndex) => socketButton(arrayIndex, 'enhance', socketIndex, id)).join('')}
+          </div>
+        </section>`;
+      }).join('');
+      updateSocketCompatibility();
+    }
+
+    function socketButton(arrayIndex, socketType, socketIndex, runeId) {
+      const rune = runeById(runeId);
+      const key = `${arrayIndex}-${socketType}-${socketIndex}`;
+      return `<button class="rune-socket ${socketType} ${rune ? 'filled' : ''} ${focusedSocket === key ? 'focused' : ''}" type="button" data-socket="${socketType}" onclick="clickSocket(${arrayIndex}, '${socketType}', ${socketIndex})" draggable="${Boolean(rune)}" ${rune ? `ondragstart="startSocketDrag(event, ${arrayIndex}, '${socketType}', ${socketIndex}, '${runeId}')" ondragend="endRuneDrag(event)"` : ''} ondragover="allowSocketDrop(event, '${socketType}')" ondragleave="clearDropState(event)" ondrop="dropOnSocket(event, ${arrayIndex}, '${socketType}', ${socketIndex})" aria-label="${rune ? `${rune.name} · 클릭하여 상세 정보, 드래그하여 이동` : `빈 ${socketType === 'attack' ? '공격' : '강화'} 소켓 · 룬을 끌어 놓아 장착`}">
+        <span class="socket-content">${rune ? `<span class="socket-sigil">${rune.sigil}</span><span class="socket-name">${rune.name}</span>` : '<span class="socket-empty">+</span>'}</span>
+      </button>`;
+    }
+
+    function updateSocketCompatibility() {
+      const selectedId = dragPayload?.runeId || inventoryEntry(selectedInventory)?.catalogId;
+      const selected = selectedId ? runeCatalog[selectedId] : null;
+      document.querySelectorAll('.rune-socket').forEach(socket => {
+        socket.classList.remove('compatible','incompatible');
+        if (!selected) return;
+        socket.classList.add(socket.dataset.socket === selected.socket ? 'compatible' : 'incompatible');
+      });
+    }
+
+    function selectInventory(instanceId) {
+      const entry = inventoryEntry(instanceId);
+      if (!entry) return;
+      selectedInventory = instanceId;
+      focusedSocket = null;
+      detailSelection = { type:'inventory', id:entry.catalogId };
+      renderInventory();
+      renderDetails();
+      updateSocketCompatibility();
+    }
+
+    function selectWeapon(id) {
+      selectedWeapon = id;
+      selectedInventory = null;
+      focusedSocket = null;
+      detailSelection = { type:'weapon', id };
+      renderWeapons();
+      renderArrays();
+      renderInventory();
+      renderDetails();
+      document.getElementById('arrayList').scrollTop = 0;
+    }
+
+    function getSocketRune(weaponId, arrayIndex, socketType, socketIndex) {
+      const array = weapons[weaponId]?.loadout[arrayIndex];
+      if (!array) return null;
+      return socketType === 'attack' ? array.attack : array.enhance[socketIndex];
+    }
+
+    function setSocketRune(weaponId, arrayIndex, socketType, socketIndex, runeId) {
+      const array = weapons[weaponId].loadout[arrayIndex];
+      if (socketType === 'attack') array.attack = runeId;
+      else array.enhance[socketIndex] = runeId;
+    }
+
+    function rememberInventoryRune(runeId) {
+      if (!runeId) return null;
+      inventorySerial += 1;
+      const instanceId = `inv-${runeId}-${inventorySerial}`;
+      inventoryOrder.unshift({ instanceId, catalogId:runeId });
+      return instanceId;
+    }
+
+    function finishRuneChange(runeId, arrayIndex, socketType, socketIndex) {
+      selectedInventory = null;
+      focusedSocket = `${arrayIndex}-${socketType}-${socketIndex}`;
+      detailSelection = { type:'socket', id:runeId };
+      renderInventory();
+      renderArrays();
+      renderDetails();
+    }
+
+    function placeInventoryRune(instanceId, arrayIndex, socketType, socketIndex) {
+      const entry = inventoryEntry(instanceId);
+      const runeId = entry?.catalogId;
+      const chosen = runeCatalog[runeId];
+      if (!chosen || !entry) return false;
+      if (chosen.socket !== socketType) {
+        showToast(`${chosen.name}은(는) ${socketType === 'attack' ? '공격룬' : '강화룬'} 소켓에 장착할 수 없습니다.`);
+        return false;
+      }
+
+      const currentId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
+      if (currentId) rememberInventoryRune(currentId);
+      inventoryOrder = inventoryOrder.filter(item => item.instanceId !== instanceId);
+      setSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex, runeId);
+      finishRuneChange(runeId, arrayIndex, socketType, socketIndex);
+      showToast(currentId
+        ? `${chosen.name}을(를) 장착하고 ${runeCatalog[currentId].name}을(를) 보관함으로 옮겼습니다.`
+        : `${chosen.name}을(를) ${arrayIndex + 1}번 배열에 장착했습니다.`);
+      return true;
+    }
+
+    function clickSocket(arrayIndex, socketType, socketIndex) {
+      const currentId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
+      const key = `${arrayIndex}-${socketType}-${socketIndex}`;
+
+      if (selectedInventory && runeCatalog[selectedInventory]) {
+        placeInventoryRune(selectedInventory, arrayIndex, socketType, socketIndex);
+        return;
+      } else if (currentId) {
+        selectedInventory = null;
+        focusedSocket = key;
+        detailSelection = { type:'socket', id:currentId };
+        renderInventory();
+        renderArrays();
+        renderDetails();
+      } else {
+        focusedSocket = key;
+        renderArrays();
+        showToast(`빈 ${socketType === 'attack' ? '공격룬' : '강화룬'} 슬롯입니다.`);
+      }
+    }
+
+    function beginRuneDrag(event, payload) {
+      dragPayload = payload;
+      event.currentTarget.classList.add('drag-source');
+      document.body.classList.add('dragging-rune');
+      if (event.dataTransfer) {
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', JSON.stringify(payload));
+      }
+      detailSelection = { type:payload.source === 'socket' ? 'socket' : 'inventory', id:payload.runeId };
+      renderDetails();
+      updateSocketCompatibility();
+    }
+
+    function startInventoryDrag(event, instanceId) {
+      const entry = inventoryEntry(instanceId);
+      if (!entry || !runeCatalog[entry.catalogId]) return;
+      selectedInventory = instanceId;
+      focusedSocket = null;
+      beginRuneDrag(event, { source:'inventory', instanceId, runeId:entry.catalogId });
+    }
+
+    function startSocketDrag(event, arrayIndex, socketType, socketIndex, runeId) {
+      selectedInventory = null;
+      focusedSocket = `${arrayIndex}-${socketType}-${socketIndex}`;
+      beginRuneDrag(event, { source:'socket', weaponId:selectedWeapon, arrayIndex, socketType, socketIndex, runeId });
+    }
+
+    function clearDropState(event) {
+      if (event?.currentTarget?.contains(event.relatedTarget)) return;
+      event?.currentTarget?.classList.remove('drop-ready');
+    }
+
+    function clearAllDragStyles() {
+      document.body.classList.remove('dragging-rune');
+      document.querySelectorAll('.drag-source, .drop-ready').forEach(element => element.classList.remove('drag-source','drop-ready'));
+    }
+
+    function endRuneDrag() {
+      dragPayload = null;
+      clearAllDragStyles();
+      updateSocketCompatibility();
+    }
+
+    function allowSocketDrop(event, socketType) {
+      const rune = dragPayload ? runeCatalog[dragPayload.runeId] : null;
+      if (!rune || rune.socket !== socketType) return;
+      event.preventDefault();
+      if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+      event.currentTarget.classList.add('drop-ready');
+    }
+
+    function moveSocketRune(payload, arrayIndex, socketType, socketIndex) {
+      const runeId = getSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex);
+      const rune = runeCatalog[runeId];
+      if (!rune || rune.socket !== socketType) return false;
+
+      const sameSocket = payload.weaponId === selectedWeapon && payload.arrayIndex === arrayIndex && payload.socketType === socketType && payload.socketIndex === socketIndex;
+      if (sameSocket) {
+        focusedSocket = `${arrayIndex}-${socketType}-${socketIndex}`;
+        detailSelection = { type:'socket', id:runeId };
+        renderArrays();
+        renderDetails();
+        return true;
+      }
+
+      const destinationId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
+      setSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex, runeId);
+      setSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex, destinationId || null);
+      finishRuneChange(runeId, arrayIndex, socketType, socketIndex);
+      showToast(destinationId
+        ? `${rune.name}과(와) ${runeCatalog[destinationId].name}의 위치를 바꿨습니다.`
+        : `${rune.name}을(를) ${arrayIndex + 1}번 배열로 이동했습니다.`);
+      return true;
+    }
+
+    function dropOnSocket(event, arrayIndex, socketType, socketIndex) {
+      event.preventDefault();
+      event.stopPropagation();
+      const payload = dragPayload;
+      if (!payload) return;
+      if (payload.source === 'inventory') placeInventoryRune(payload.instanceId, arrayIndex, socketType, socketIndex);
+      else moveSocketRune(payload, arrayIndex, socketType, socketIndex);
+      endRuneDrag();
+    }
+
+    function allowInventoryDrop(event) {
+      if (!dragPayload || dragPayload.source !== 'socket') return;
+      event.preventDefault();
+      if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+      event.currentTarget.classList.add('drop-ready');
+    }
+
+    function dropOnInventory(event) {
+      event.preventDefault();
+      const payload = dragPayload;
+      if (!payload || payload.source !== 'socket') return;
+      const runeId = getSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex);
+      if (!runeId) return;
+      setSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex, null);
+      selectedInventory = rememberInventoryRune(runeId);
+      focusedSocket = null;
+      detailSelection = { type:'inventory', id:runeId };
+      renderInventory();
+      renderArrays();
+      renderDetails();
+      showToast(`${runeCatalog[runeId].name}을(를) 보관함으로 옮겼습니다.`);
+      endRuneDrag();
+    }
+
+    function setFilter(filter, button) {
+      activeFilter = filter;
+      document.querySelectorAll('.filter-button').forEach(btn => btn.classList.toggle('active', btn === button));
+      renderInventory();
+    }
+
+    function sortInventory() {
+      const priority = { epic:0, rare:1, common:2 };
+      const catalog = allCatalog();
+      inventoryOrder.sort((a,b) => {
+        const aa = catalog[a.catalogId], bb = catalog[b.catalogId];
+        if (aa.kind !== bb.kind) return aa.kind === 'rune' ? -1 : 1;
+        if (priority[aa.rarity] !== priority[bb.rarity]) return priority[aa.rarity] - priority[bb.rarity];
+        return aa.name.localeCompare(bb.name, 'ko') || a.instanceId.localeCompare(b.instanceId);
+      });
+      renderInventory();
+      showToast('룬과 아이템을 등급순으로 정렬했습니다.');
+    }
+
+    function renderDetails() {
+      let data;
+      let type = detailSelection.type;
+      if (type === 'weapon') data = weapons[detailSelection.id];
+      else data = allCatalog()[detailSelection.id] || runeCatalog.tracking;
+      const isWeapon = type === 'weapon';
+      const symbolClass = isWeapon ? 'weapon' : (data.kind === 'item' ? 'item' : data.socket);
+      const rarityClass = data.rarity === 'common' ? 'common' : data.rarity === 'epic' ? 'epic' : '';
+      document.getElementById('detailKind').textContent = isWeapon ? '무기' : data.kind === 'item' ? '아이템' : '룬';
+
+      const coreStats = isWeapon
+        ? `<div class="stat-list">${data.stats.map(([label, width, value]) => `<div class="stat-row"><span>${label}</span><span class="stat-track"><span style="width:${width}%"></span></span><span class="stat-value">${value}</span></div>`).join('')}</div>`
+        : `<div class="property-grid">${data.stats.map(([label, value]) => `<div class="property"><div class="property-label">${label}</div><div class="property-value">${value}</div></div>`).join('')}</div>`;
+
+      const properties = isWeapon
+        ? `<div class="detail-rule"></div><div class="property-grid">${data.properties.map(([label, value]) => `<div class="property"><div class="property-label">${label}</div><div class="property-value">${value}</div></div>`).join('')}</div>`
+        : '';
+
+      const detailHint = isWeapon
+        ? ''
+        : `<div class="detail-hint">${data.kind === 'item'
+            ? '아이템 사용 규칙과 수치는 플레이 테스트 단계에서 조정될 수 있습니다.'
+            : type === 'socket'
+              ? '현재 무기에 장착된 룬입니다.'
+              : '보관함에 있는 룬입니다.'}</div>`;
+
+      document.getElementById('detailsContent').innerHTML = `
+        <div class="detail-hero"><div class="detail-symbol ${symbolClass}"><span>${isWeapon ? data.name.slice(0,2) : data.sigil}</span></div></div>
+        <div class="rarity ${rarityClass}">${data.rarityLabel}</div>
+        <h2 class="detail-name">${data.name}</h2>
+        <div class="detail-sub">${data.category}</div>
+        <div class="detail-rule"></div>
+        <p class="detail-description">${data.desc}</p>
+        <div class="detail-rule"></div>
+        ${coreStats}
+        ${properties}
+        <div class="effect-box"><strong>${isWeapon ? '고유 효과' : '효과 설명'}</strong>${data.effect}</div>
+        ${detailHint}`;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1900);
+    }
+
+    function toggleInventory(open) {
+      document.body.classList.toggle('closed', !open);
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' || event.code === 'KeyE' || event.key.toLowerCase() === 'e') {
+        toggleInventory(document.body.classList.contains('closed'));
+      }
+    });
+
+    renderInventory();
+    renderWeapons();
+    renderArrays();
+    renderDetails();
+  </script>
+  <script src="/inventory-ui.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2a142ee8b8dd96f',t:'MTc4NjU1NjM4Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
