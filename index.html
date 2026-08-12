@@ -764,7 +764,7 @@
     </div>
   </div>
 
-  <div class="pause-shade" ondragover="allowWeaponDiscard(event)" ondrop="discardDraggedWeapon(event)"></div>
+  <div class="pause-shade" onclick="dropHeldOutside(event)" ondragover="allowOutsideDiscard(event)" ondrop="discardOutside(event)"></div>
 
   <main class="inventory-shell" aria-label="인벤토리">
     <header class="top-bar">
@@ -816,6 +816,10 @@
         <div class="rune-editor">
           <div class="editor-head">
             <div class="editor-title"><span id="editingWeapon">정제 장검</span> 룬 배열</div>
+            <select class="sort-select" id="locationMode" aria-label="현재 장소" onchange="setLocationMode(this.value)">
+              <option value="shop">상점 방 · 편집 가능</option>
+              <option value="view">기타 장소 · 확인 전용</option>
+            </select>
           </div>
           <div class="arrays" id="arrayList"></div>
         </div>
@@ -1324,5 +1328,5 @@
     renderDetails();
   </script>
   <script src="./inventory-ui.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2a142ee8b8dd96f',t:'MTc4NjU1NjM4Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
