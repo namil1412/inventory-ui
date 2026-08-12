@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 env:
-  SOURCE_URL: https://roguelike-inventory-preview.skadlf1412.chatgpt.site/
+  SOURCE_URL: https://roguelike-inventory-preview.skadlf1412.chatgpt.site/inventory-ui-preview.html
 
 jobs:
   import-and-deploy:
@@ -40,11 +40,9 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
 
