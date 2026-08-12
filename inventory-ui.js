@@ -11,11 +11,11 @@ const runeCatalog = {
 };
 
 const itemCatalog = {
-  potion: { id:'potion', kind:'item', name:'응급 회복약', sigil:'H', rarity:'common', rarityLabel:'일반', category:'소모 아이템', qty:3, desc:'복용하면 잃은 체력의 일부를 즉시 회복합니다. 사용 중에는 이동 속도가 감소합니다.', stats:[['회복량','최대 체력 30%'],['사용 시간','1.2초'],['사용 키','C 길게 누르기']], effect:'사용 도중 키를 놓거나 행동이 취소되면 소모하지 않습니다.' },
-  manaVial: { id:'manaVial', kind:'item', name:'마나 응축액', sigil:'M', rarity:'rare', rarityLabel:'희귀', category:'소모 아이템', qty:2, desc:'응축된 마나를 흡수해 현재 마나를 빠르게 회복합니다.', stats:[['마나 회복','45'],['사용 시간','0.9초'],['사용 키','C 길게 누르기']], effect:'룬 배열을 많이 사용하는 전투에서 마나 흐름을 회복할 수 있습니다.' },
-  sanctuary: { id:'sanctuary', kind:'item', name:'성소의 잔향', sigil:'S', rarity:'epic', rarityLabel:'상급', category:'특수 아이템', qty:1, desc:'희미한 천사의 힘이 남아 있는 성소의 파편입니다.', stats:[['성향','빛'],['보유 효과','활성'],['중첩','불가']], effect:'보유한 동안 천사 계열 보상과 관련된 변화가 발생할 수 있습니다.' },
-  core: { id:'core', kind:'item', name:'오염된 핵', sigil:'C', rarity:'rare', rarityLabel:'희귀', category:'선택 아이템', qty:1, desc:'악마의 힘이 응축된 불안정한 핵입니다. 전투 후 파괴할 수 있습니다.', stats:[['상태','불안정'],['선택','파괴 가능'],['중첩','불가']], effect:'파괴 선택은 영혼의 빛 성향에 영향을 줄 수 있습니다.' },
-  gold: { id:'gold', kind:'item', name:'골드', sigil:'G', rarity:'common', rarityLabel:'재화', category:'공용 재화', qty:486, desc:'상점에서 물품을 구매할 때 사용하는 골드입니다. 다른 아이템과 마찬가지로 인벤토리 한 칸에 보관됩니다.', stats:[['보유량','486'],['보관 슬롯','1칸'],['사용처','상점']], effect:'획득한 골드는 이 슬롯의 보유량에 합산됩니다.' }
+  potion: { id:'potion', kind:'item', name:'응급 회복약', sigil:'H', rarity:'common', rarityLabel:'일반', category:'소모 아이템', maxStack:10, desc:'복용하면 잃은 체력의 일부를 즉시 회복합니다. 사용 중에는 이동 속도가 감소합니다.', stats:[['회복량','최대 체력 30%'],['사용 시간','1.2초'],['사용 키','C 길게 누르기']], effect:'사용 도중 키를 놓거나 행동이 취소되면 소모하지 않습니다.' },
+  manaVial: { id:'manaVial', kind:'item', name:'마나 응축액', sigil:'M', rarity:'rare', rarityLabel:'희귀', category:'소모 아이템', maxStack:10, desc:'응축된 마나를 흡수해 현재 마나를 빠르게 회복합니다.', stats:[['마나 회복','45'],['사용 시간','0.9초'],['사용 키','C 길게 누르기']], effect:'룬 배열을 많이 사용하는 전투에서 마나 흐름을 회복할 수 있습니다.' },
+  sanctuary: { id:'sanctuary', kind:'item', name:'성소의 잔향', sigil:'S', rarity:'epic', rarityLabel:'상급', category:'특수 아이템', maxStack:1, desc:'희미한 천사의 힘이 남아 있는 성소의 파편입니다.', stats:[['성향','빛'],['보유 효과','활성'],['중첩','불가']], effect:'보유한 동안 천사 계열 보상과 관련된 변화가 발생할 수 있습니다.' },
+  core: { id:'core', kind:'item', name:'오염된 핵', sigil:'C', rarity:'rare', rarityLabel:'희귀', category:'선택 아이템', maxStack:1, desc:'악마의 힘이 응축된 불안정한 핵입니다. 전투 후 파괴할 수 있습니다.', stats:[['상태','불안정'],['선택','파괴 가능'],['중첩','불가']], effect:'파괴 선택은 영혼의 빛 성향에 영향을 줄 수 있습니다.' },
+  gold: { id:'gold', kind:'item', name:'골드', sigil:'G', rarity:'common', rarityLabel:'재화', category:'공용 재화', maxStack:999999, desc:'상점에서 물품을 구매할 때 사용하는 골드입니다. 다른 아이템과 마찬가지로 인벤토리 한 칸에 보관됩니다.', stats:[['보유량','486'],['보관 슬롯','1칸'],['사용처','상점']], effect:'획득한 골드는 이 슬롯의 보유량에 합산됩니다.' }
 };
 
 const weapons = {
@@ -76,16 +76,16 @@ const inventorySlots = Array.from({ length:INVENTORY_SLOT_COUNT }, () => null);
   { uid:'inv-power-duplicate', itemId:'power', isNew:false },
   { uid:'inv-tracking', itemId:'tracking', isNew:true },
   { uid:'inv-flame', itemId:'flameShot', isNew:false },
-  { uid:'inv-potion', itemId:'potion', isNew:false },
+  { uid:'inv-potion', itemId:'potion', qty:3, isNew:false },
   { uid:'inv-pierce', itemId:'pierce', isNew:false },
-  { uid:'inv-mana', itemId:'manaVial', isNew:false },
+  { uid:'inv-mana', itemId:'manaVial', qty:2, isNew:false },
   { uid:'inv-expand', itemId:'expand', isNew:false },
   { uid:'inv-ricochet', itemId:'ricochet', isNew:false },
   { uid:'inv-split', itemId:'split', isNew:false },
-  { uid:'inv-sanctuary', itemId:'sanctuary', isNew:false },
-  { uid:'inv-core', itemId:'core', isNew:false },
+  { uid:'inv-sanctuary', itemId:'sanctuary', qty:1, isNew:false },
+  { uid:'inv-core', itemId:'core', qty:1, isNew:false },
   { uid:'inv-slash', itemId:'slashWave', isNew:false },
-  { uid:'inv-gold', itemId:'gold', isNew:false }
+  { uid:'inv-gold', itemId:'gold', qty:486, isNew:false }
 ].forEach((entry, index) => { inventorySlots[index] = entry; });
 inventorySlots.filter(Boolean).forEach((entry, index) => { entry.acquired = index; });
 
@@ -97,6 +97,11 @@ let selectedWeapon = 'sword';
 let focusedSocket = null;
 let detailSelection = { type:'weapon', id:'sword' };
 let dragPayload = null;
+let heldEntry = null;
+let heldOrigin = null;
+let heldSnapshot = null;
+let locationMode = 'shop';
+const floorDrops = [];
 let weaponShiftDirection = 0;
 let toastTimer;
 
@@ -160,7 +165,7 @@ function renderInventory() {
 
   grid.innerHTML = visible.map(({ entry, slotIndex }) => {
     if (!entry) {
-      return `<button class="slot empty" type="button" onclick="clearSelection(event)" ondragover="allowInventorySlotDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnInventorySlot(event, ${slotIndex})" aria-label="빈 슬롯 · 선택 해제"></button>`;
+      return `<button class="slot empty" data-slot-index="${slotIndex}" type="button" onclick="clickInventorySlot(${slotIndex}, event)" ondragover="allowInventorySlotDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnInventorySlot(event, ${slotIndex})" aria-label="빈 슬롯${heldEntry ? ' · 들고 있는 대상 배치' : ' · 선택 해제'}"></button>`;
     }
     const item = catalog[entry.itemId];
     const iconClass = item.id === 'gold' ? 'gold' : item.kind === 'item' ? 'item' : item.socket;
@@ -171,9 +176,9 @@ function renderInventory() {
     const interactionLabel = item.kind === 'rune'
       ? ' · 우클릭하여 빈 소켓에 자동 장착 · 드래그하여 슬롯 이동'
       : ' · 드래그하여 슬롯 이동';
-    return `<button class="slot ${item.rarity} ${selectedInventoryUid === entry.uid ? 'selected' : ''}" type="button" onclick="selectInventory('${entry.uid}', event)" ${autoEquip} draggable="true" ondragstart="startInventoryDrag(event, '${entry.uid}')" ondragend="endEntryDrag(event)" ondragover="allowInventorySlotDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnInventorySlot(event, ${slotIndex})" aria-label="${item.name}${entry.isNew ? ' · 새 룬' : ''}${interactionLabel}">
+    return `<button class="slot ${item.rarity} ${selectedInventoryUid === entry.uid ? 'selected' : ''}" type="button" onclick="selectInventory('${entry.uid}', event)" ${autoEquip} draggable="${isEditingAllowed()}" ${isEditingAllowed() ? `ondragstart="startInventoryDrag(event, '${entry.uid}')" ondragend="endEntryDrag(event)"` : ''} ondragover="allowInventorySlotDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnInventorySlot(event, ${slotIndex})" aria-label="${item.name}${entry.isNew ? ' · 새 룬' : ''}${interactionLabel}">
       ${entry.isNew && item.kind === 'rune' ? '<span class="new-mark">NEW</span>' : ''}
-      ${item.qty && item.qty > 1 ? `<span class="slot-qty">${Number(item.qty).toLocaleString('ko-KR')}</span>` : ''}
+      ${entry.qty && entry.qty > 1 ? `<span class="slot-qty">${Number(entry.qty).toLocaleString('ko-KR')}</span>` : ''}
       ${icon}<span class="slot-name">${item.name}</span>
     </button>`;
   }).join('');
@@ -186,17 +191,24 @@ function entryMarkup(entry, compact = false) {
   const item = allCatalog()[entry.itemId];
   if (!item) return '';
   const iconClass = item.id === 'gold' ? 'gold' : item.kind === 'item' ? 'item' : item.socket;
-  return `<div class="slot-icon ${iconClass}"><span>${item.sigil}</span></div>${compact ? '' : `<span class="slot-name">${item.name}</span>`}`;
+  return `${entry.qty > 1 ? `<span class="slot-qty">${Number(entry.qty).toLocaleString('ko-KR')}</span>` : ''}<div class="slot-icon ${iconClass}"><span>${item.sigil}</span></div>${compact ? '' : `<span class="slot-name">${item.name}</span>`}`;
 }
 
 function renderUseSlots() {
   const holder = document.getElementById('useSlots');
-  holder.innerHTML = itemUseSlots.map((entry, index) => `<button class="use-slot" data-key="${index + 1}" type="button" onclick="selectUseSlot(${index}, event)" draggable="${Boolean(entry)}" ${entry ? `ondragstart="startUseSlotDrag(event, ${index})" ondragend="endEntryDrag(event)"` : ''} ondragover="allowUseSlotDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnUseSlot(event, ${index})" aria-label="아이템 사용 슬롯 ${index + 1}${entry ? ` · ${allCatalog()[entry.itemId].name}` : ' · 비어 있음'}">${entryMarkup(entry, true)}</button>`).join('');
+  holder.innerHTML = itemUseSlots.map((entry, index) => `<button class="use-slot" data-key="${index + 1}" type="button" onclick="selectUseSlot(${index}, event)" draggable="${Boolean(entry) && isEditingAllowed()}" ${entry && isEditingAllowed() ? `ondragstart="startUseSlotDrag(event, ${index})" ondragend="endEntryDrag(event)"` : ''} ondragover="allowUseSlotDrop(event)" ondragleave="clearDropState(event)" ondrop="dropOnUseSlot(event, ${index})" aria-label="아이템 사용 슬롯 ${index + 1}${entry ? ` · ${allCatalog()[entry.itemId].name}` : ' · 비어 있음'}">${entryMarkup(entry, true)}</button>`).join('');
 }
 
 function renderWeapons() {
   const list = document.getElementById('weaponList');
   const weaponList = Object.values(weapons);
+  if (!weaponList.length) {
+    list.innerHTML = '<div class="detail-hint">장착된 무기가 없습니다.</div>';
+    document.querySelectorAll('.weapon-nav, .discard-weapon-button').forEach(button => { button.disabled = true; });
+    return;
+  }
+  document.querySelectorAll('.weapon-nav').forEach(button => { button.disabled = false; });
+  document.querySelectorAll('.discard-weapon-button').forEach(button => { button.disabled = !isEditingAllowed(); });
   const selectedIndex = weaponList.findIndex(weapon => weapon.id === selectedWeapon);
   list.innerHTML = weaponList.map((weapon, index) => {
     let position = 'position-hidden';
@@ -204,7 +216,7 @@ function renderWeapons() {
     else if (index === (selectedIndex - 1 + weaponList.length) % weaponList.length) position = 'position-left';
     else if (index === (selectedIndex + 1) % weaponList.length) position = 'position-right';
     const entrance = position === 'active' && weaponShiftDirection ? (weaponShiftDirection > 0 ? 'card-enter-forward' : 'card-enter-backward') : '';
-    return `<button class="weapon-card ${position} ${entrance}" type="button" onclick="selectWeapon('${weapon.id}')" draggable="${selectedWeapon === weapon.id}" ${selectedWeapon === weapon.id ? `ondragstart="startWeaponDrag(event, '${weapon.id}')" ondragend="endEntryDrag(event)"` : ''} aria-pressed="${selectedWeapon === weapon.id}" aria-label="${weapon.name}${selectedWeapon === weapon.id ? ' · 현재 선택됨 · 인벤토리 밖으로 드래그해 버리기' : ' · 선택하기'}">
+    return `<button class="weapon-card ${position} ${entrance}" type="button" onclick="selectWeapon('${weapon.id}')" draggable="${selectedWeapon === weapon.id && isEditingAllowed()}" ${selectedWeapon === weapon.id && isEditingAllowed() ? `ondragstart="startWeaponDrag(event, '${weapon.id}')" ondragend="endEntryDrag(event)"` : ''} aria-pressed="${selectedWeapon === weapon.id}" aria-label="${weapon.name}${selectedWeapon === weapon.id ? ' · 현재 선택됨 · 인벤토리 밖으로 드래그해 버리기' : ' · 선택하기'}">
       <span class="weapon-index">${index + 1}</span>
       <span class="weapon-art ${weapon.art}"></span>
       <span class="weapon-name">${weapon.name}</span>
@@ -214,6 +226,7 @@ function renderWeapons() {
 
 function cycleWeapon(direction) {
   const ids = Object.keys(weapons);
+  if (!ids.length) return;
   const currentIndex = ids.indexOf(selectedWeapon);
   const nextIndex = (currentIndex + direction + ids.length) % ids.length;
   selectWeapon(ids[nextIndex], direction);
@@ -234,11 +247,14 @@ function runeById(id) {
 
 function renderArrays() {
   const weapon = weapons[selectedWeapon];
-  document.getElementById('editingWeapon').textContent = weapon.name;
+  document.getElementById('editingWeapon').textContent = weapon ? weapon.name : '장착 무기 없음';
   const list = document.getElementById('arrayList');
+  if (!weapon) {
+    list.innerHTML = '<div class="detail-hint">장착된 무기가 없습니다.</div>';
+    return;
+  }
   list.innerHTML = weapon.loadout.map((array, arrayIndex) => {
-    const ids = [array.attack, ...array.enhance];
-    const cost = ids.reduce((sum, id) => sum + (runeById(id)?.mana || 0), 0);
+    const cost = calculateFinalMana(weapon, array, arrayIndex);
     return `<section class="array-row">
       <div class="array-header">
         <div class="array-label"><span class="array-num">${arrayIndex + 1}</span>룬 배열 ${arrayIndex + 1}</div>
@@ -256,28 +272,76 @@ function renderArrays() {
 function socketButton(arrayIndex, socketType, socketIndex, runeId) {
   const rune = runeById(runeId);
   const key = `${arrayIndex}-${socketType}-${socketIndex}`;
-  return `<button class="rune-socket ${socketType} ${rune ? 'filled' : ''} ${focusedSocket === key ? 'focused' : ''}" type="button" data-socket="${socketType}" onclick="clickSocket(${arrayIndex}, '${socketType}', ${socketIndex})" oncontextmenu="unequipSocket(event, ${arrayIndex}, '${socketType}', ${socketIndex})" draggable="${Boolean(rune)}" ${rune ? `ondragstart="startSocketDrag(event, ${arrayIndex}, '${socketType}', ${socketIndex}, '${runeId}')" ondragend="endEntryDrag(event)"` : ''} ondragover="allowSocketDrop(event, '${socketType}')" ondragleave="clearDropState(event)" ondrop="dropOnSocket(event, ${arrayIndex}, '${socketType}', ${socketIndex})" aria-label="${rune ? `${rune.name} · 좌클릭 상세 정보 · 우클릭 장착 해제` : `빈 ${socketType === 'attack' ? '공격' : '강화'} 소켓`}">
+  return `<button class="rune-socket ${socketType} ${rune ? 'filled' : ''} ${focusedSocket === key ? 'focused' : ''}" type="button" data-socket="${socketType}" onclick="clickSocket(${arrayIndex}, '${socketType}', ${socketIndex})" oncontextmenu="unequipSocket(event, ${arrayIndex}, '${socketType}', ${socketIndex})" draggable="${Boolean(rune) && isEditingAllowed()}" ${rune && isEditingAllowed() ? `ondragstart="startSocketDrag(event, ${arrayIndex}, '${socketType}', ${socketIndex}, '${runeId}')" ondragend="endEntryDrag(event)"` : ''} ondragover="allowSocketDrop(event, '${socketType}')" ondragleave="clearDropState(event)" ondrop="dropOnSocket(event, ${arrayIndex}, '${socketType}', ${socketIndex})" aria-label="${rune ? `${rune.name} · 좌클릭 상세 정보${isEditingAllowed() ? ' · 우클릭 장착 해제' : ''}` : `빈 ${socketType === 'attack' ? '공격' : '강화'} 소켓`}">
     <span class="socket-content">${rune ? `<span class="socket-sigil">${rune.sigil}</span><span class="socket-name">${rune.name}</span>` : '<span class="socket-empty">+</span>'}</span>
   </button>`;
 }
 
 function updateSocketCompatibility() {
-  const selected = dragPayload?.itemId ? runeCatalog[dragPayload.itemId] : selectedInventoryItem();
+  const selected = dragPayload?.itemId ? runeCatalog[dragPayload.itemId] : heldEntry ? runeCatalog[heldEntry.itemId] : selectedInventoryItem();
   document.querySelectorAll('.rune-socket').forEach(socket => {
     socket.classList.remove('compatible', 'incompatible');
     if (!selected || selected.kind !== 'rune') return;
-    socket.classList.add(socket.dataset.socket === selected.socket ? 'compatible' : 'incompatible');
+    socket.classList.add(isEditingAllowed() && socket.dataset.socket === selected.socket && isRuneCompatibleWithWeapon(selected.id, selectedWeapon) ? 'compatible' : 'incompatible');
   });
+}
+
+function isEditingAllowed() {
+  return locationMode === 'shop';
+}
+
+function isRuneCompatibleWithWeapon(runeId, weaponId) {
+  const rune = runeCatalog[runeId];
+  const weapon = weapons[weaponId];
+  if (!rune || !weapon) return false;
+  if (rune.socket !== 'attack') return true;
+  const isMeleeWeapon = weapon.category.includes('근접');
+  if (rune.category.includes('근접 전용')) return isMeleeWeapon;
+  if (rune.category.includes('원거리 전용')) return !isMeleeWeapon;
+  return true;
+}
+
+function calculateFinalMana(weapon, array, arrayIndex) {
+  let total = (runeById(array.attack)?.mana || 0) + array.enhance.reduce((sum, id) => sum + (runeById(id)?.mana || 0), 0);
+  if (weapon.id === 'sword' && array.enhance[0]) total -= 1;
+  if (weapon.id === 'rifle' && arrayIndex === 0) total -= 2;
+  return Math.max(0, total);
+}
+
+function setLocationMode(mode) {
+  cancelHeld();
+  locationMode = mode === 'view' ? 'view' : 'shop';
+  document.body.classList.toggle('view-only', !isEditingAllowed());
+  renderInventory();
+  renderWeapons();
+  renderArrays();
+  showToast(isEditingAllowed() ? '상점 방: 룬 배열을 편집할 수 있습니다.' : '확인 전용: 룬 배열 편집이 잠겼습니다.');
 }
 
 function selectInventory(uid, event) {
   event?.stopPropagation();
+  if (heldEntry) {
+    placeHeldInInventory(inventorySlotIndex(uid));
+    return;
+  }
   const entry = inventoryEntry(uid);
   if (!entry) return;
+  if (!isEditingAllowed()) {
+    entry.isNew = false;
+    detailSelection = { type:'inventory', uid };
+    renderInventory();
+    renderDetails();
+    return;
+  }
+  heldSnapshot = captureHeldSnapshot();
   entry.isNew = false;
-  selectedInventoryUid = uid;
+  const slotIndex = inventorySlotIndex(uid);
+  inventorySlots[slotIndex] = null;
+  heldEntry = entry;
+  heldOrigin = { source:'inventory', slotIndex };
+  selectedInventoryUid = null;
   focusedSocket = null;
-  detailSelection = { type:'inventory', uid };
+  detailSelection = { type:'catalog', id:entry.itemId };
   renderInventory();
   renderArrays();
   renderDetails();
@@ -286,9 +350,9 @@ function selectInventory(uid, event) {
 
 function updateHeldRune() {
   const held = document.getElementById('heldRune');
-  const entry = inventoryEntry(selectedInventoryUid);
+  const entry = heldEntry;
   const item = entry ? allCatalog()[entry.itemId] : null;
-  if (!item || item.kind !== 'rune') {
+  if (!item) {
     held.classList.remove('show');
     held.innerHTML = '';
     return;
@@ -303,8 +367,82 @@ document.addEventListener('mousemove', event => {
   held.style.top = `${event.clientY}px`;
 });
 
+function clickInventorySlot(slotIndex, event) {
+  event?.stopPropagation();
+  if (heldEntry) placeHeldInInventory(slotIndex);
+  else clearSelection(event);
+}
+
+function captureHeldSnapshot() {
+  return {
+    inventory: inventorySlots.map(entry => entry ? { ...entry } : null),
+    useSlots: itemUseSlots.map(entry => entry ? { ...entry } : null),
+    loadouts: Object.fromEntries(Object.entries(weapons).map(([id, weapon]) => [id, JSON.parse(JSON.stringify(weapon.loadout))]))
+  };
+}
+
+function canStackEntries(a, b) {
+  if (!a || !b || a.itemId !== b.itemId) return false;
+  const item = itemCatalog[a.itemId];
+  return Boolean(item && item.maxStack > 1);
+}
+
+function mergeEntries(incoming, target) {
+  const maxStack = itemCatalog[incoming.itemId]?.maxStack || 1;
+  const room = Math.max(0, maxStack - (target.qty || 1));
+  const moved = Math.min(room, incoming.qty || 1);
+  target.qty = (target.qty || 1) + moved;
+  incoming.qty = (incoming.qty || 1) - moved;
+  return incoming.qty <= 0;
+}
+
+function placeHeldInInventory(slotIndex) {
+  if (!heldEntry || slotIndex < 0) return false;
+  const target = inventorySlots[slotIndex];
+  if (canStackEntries(heldEntry, target)) {
+    const fullyMerged = mergeEntries(heldEntry, target);
+    if (fullyMerged) {
+      heldEntry = null;
+      heldOrigin = null;
+      heldSnapshot = null;
+    }
+  } else {
+    inventorySlots[slotIndex] = heldEntry;
+    heldEntry = target;
+    if (!target) {
+      heldOrigin = null;
+      heldSnapshot = null;
+    }
+  }
+  renderInventory();
+  renderDetails();
+  return true;
+}
+
+function cancelHeld() {
+  if (!heldEntry) return false;
+  if (heldSnapshot) {
+    inventorySlots.splice(0, inventorySlots.length, ...heldSnapshot.inventory.map(entry => entry ? { ...entry } : null));
+    itemUseSlots.splice(0, itemUseSlots.length, ...heldSnapshot.useSlots.map(entry => entry ? { ...entry } : null));
+    Object.entries(heldSnapshot.loadouts).forEach(([id, loadout]) => {
+      if (weapons[id]) weapons[id].loadout = JSON.parse(JSON.stringify(loadout));
+    });
+  }
+  heldEntry = null;
+  heldOrigin = null;
+  heldSnapshot = null;
+  renderInventory();
+  renderArrays();
+  renderDetails();
+  return true;
+}
+
 function clearSelection(event) {
   event?.stopPropagation();
+  if (heldEntry) {
+    placeHeldInInventory(event?.currentTarget?.classList?.contains('empty') ? Number(event.currentTarget.dataset.slotIndex) : -1);
+    return;
+  }
   selectedInventoryUid = null;
   focusedSocket = null;
   renderInventory();
@@ -314,7 +452,7 @@ function clearSelection(event) {
 
 function handleInventoryBlankClick(event) {
   if (event.target.closest('.slot:not(.empty)')) return;
-  clearSelection(event);
+  if (!heldEntry) clearSelection(event);
 }
 
 function selectWeapon(id, direction = 0) {
@@ -353,11 +491,19 @@ function finishRuneChange(runeId, arrayIndex, socketType, socketIndex) {
 }
 
 function placeInventoryRune(inventoryUid, arrayIndex, socketType, socketIndex) {
+  if (!isEditingAllowed()) {
+    showToast('현재 장소에서는 룬 배열을 편집할 수 없습니다.');
+    return false;
+  }
   const entry = inventoryEntry(inventoryUid);
   const chosen = entry ? runeCatalog[entry.itemId] : null;
   if (!chosen) return false;
   if (chosen.socket !== socketType) {
     showToast(`${chosen.name}은(는) ${socketType === 'attack' ? '공격룬' : '강화룬'} 소켓에 장착할 수 없습니다.`);
+    return false;
+  }
+  if (!isRuneCompatibleWithWeapon(chosen.id, selectedWeapon)) {
+    showToast(`${chosen.name}은(는) 현재 무기에 장착할 수 없습니다.`);
     return false;
   }
 
@@ -368,6 +514,39 @@ function placeInventoryRune(inventoryUid, arrayIndex, socketType, socketIndex) {
   setSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex, chosen.id);
   finishRuneChange(chosen.id, arrayIndex, socketType, socketIndex);
   showToast(currentId ? `${chosen.name}을(를) 장착하고 ${runeCatalog[currentId].name}을(를) 보관함으로 옮겼습니다.` : `${chosen.name}을(를) ${arrayIndex + 1}번 배열에 장착했습니다.`);
+  return true;
+}
+
+function placeHeldRuneInSocket(arrayIndex, socketType, socketIndex) {
+  if (!isEditingAllowed()) {
+    showToast('현재 장소에서는 룬 배열을 편집할 수 없습니다.');
+    return false;
+  }
+  const rune = heldEntry ? runeCatalog[heldEntry.itemId] : null;
+  if (!rune) return false;
+  if (rune.socket !== socketType) {
+    showToast(`${rune.name}은(는) 해당 소켓에 장착할 수 없습니다.`);
+    return false;
+  }
+  if (!isRuneCompatibleWithWeapon(rune.id, selectedWeapon)) {
+    showToast(`${rune.name}은(는) 현재 무기에 장착할 수 없습니다.`);
+    return false;
+  }
+  const currentId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
+  setSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex, rune.id);
+  if (currentId) {
+    heldEntry = { uid:`held-${++inventorySequence}`, itemId:currentId, isNew:false, acquired:inventorySequence };
+  } else {
+    heldEntry = null;
+    heldOrigin = null;
+    heldSnapshot = null;
+  }
+  focusedSocket = `${arrayIndex}-${socketType}-${socketIndex}`;
+  detailSelection = { type:'socket', id:rune.id };
+  renderInventory();
+  renderArrays();
+  renderDetails();
+  showToast(currentId ? `${rune.name}과(와) ${runeCatalog[currentId].name}을(를) 교체했습니다.` : `${rune.name}을(를) 장착했습니다.`);
   return true;
 }
 
@@ -393,10 +572,22 @@ function firstCompatibleEmptySocket(socketType) {
 function autoEquipInventoryRune(event, inventoryUid) {
   event.preventDefault();
   event.stopPropagation();
+  if (heldEntry) {
+    cancelHeld();
+    return;
+  }
+  if (!isEditingAllowed()) {
+    showToast('현재 장소에서는 룬을 자동 장착할 수 없습니다.');
+    return;
+  }
   const entry = inventoryEntry(inventoryUid);
   const rune = entry ? runeCatalog[entry.itemId] : null;
   if (!rune) return;
 
+  if (!isRuneCompatibleWithWeapon(rune.id, selectedWeapon)) {
+    showToast(`${rune.name}은(는) 현재 무기에 장착할 수 없습니다.`);
+    return;
+  }
   const destination = firstCompatibleEmptySocket(rune.socket);
   if (!destination) {
     showToast(`${rune.socket === 'attack' ? '공격룬' : '강화룬'}을 장착할 빈 슬롯이 없습니다.`);
@@ -413,6 +604,12 @@ function autoEquipInventoryRune(event, inventoryUid) {
 function clickSocket(arrayIndex, socketType, socketIndex) {
   const currentId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
   const key = `${arrayIndex}-${socketType}-${socketIndex}`;
+  if (heldEntry) {
+    const heldRune = runeCatalog[heldEntry.itemId];
+    if (!heldRune) return;
+    placeHeldRuneInSocket(arrayIndex, socketType, socketIndex);
+    return;
+  }
   const selected = selectedInventoryItem();
   if (selectedInventoryUid && selected?.kind === 'rune') {
     placeInventoryRune(selectedInventoryUid, arrayIndex, socketType, socketIndex);
@@ -434,6 +631,14 @@ function clickSocket(arrayIndex, socketType, socketIndex) {
 function unequipSocket(event, arrayIndex, socketType, socketIndex) {
   event.preventDefault();
   event.stopPropagation();
+  if (heldEntry) {
+    cancelHeld();
+    return;
+  }
+  if (!isEditingAllowed()) {
+    showToast('현재 장소에서는 룬을 장착 해제할 수 없습니다.');
+    return;
+  }
   const runeId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
   if (!runeId) {
     clearSelection();
@@ -470,6 +675,7 @@ function beginEntryDrag(event, payload) {
 }
 
 function startInventoryDrag(event, inventoryUid) {
+  if (!isEditingAllowed()) return;
   const entry = inventoryEntry(inventoryUid);
   if (!entry || !allCatalog()[entry.itemId]) return;
   selectedInventoryUid = inventoryUid;
@@ -478,18 +684,21 @@ function startInventoryDrag(event, inventoryUid) {
 }
 
 function startSocketDrag(event, arrayIndex, socketType, socketIndex, runeId) {
+  if (!isEditingAllowed()) return;
   selectedInventoryUid = null;
   focusedSocket = `${arrayIndex}-${socketType}-${socketIndex}`;
   beginEntryDrag(event, { source:'socket', weaponId:selectedWeapon, arrayIndex, socketType, socketIndex, itemId:runeId });
 }
 
 function startUseSlotDrag(event, slotIndex) {
+  if (!isEditingAllowed()) return;
   const entry = itemUseSlots[slotIndex];
   if (!entry) return;
   beginEntryDrag(event, { source:'useSlot', slotIndex, itemId:entry.itemId });
 }
 
 function startWeaponDrag(event, weaponId) {
+  if (!isEditingAllowed()) return;
   beginEntryDrag(event, { source:'weapon', weaponId });
   document.body.classList.add('dragging-weapon');
 }
@@ -513,16 +722,20 @@ function endEntryDrag() {
 
 function allowSocketDrop(event, socketType) {
   const rune = dragPayload ? runeCatalog[dragPayload.itemId] : null;
-  if (!rune || rune.socket !== socketType) return;
+  if (!isEditingAllowed() || !rune || rune.socket !== socketType || !isRuneCompatibleWithWeapon(rune.id, selectedWeapon)) return;
   event.preventDefault();
   if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
   event.currentTarget.classList.add('drop-ready');
 }
 
 function moveSocketRune(payload, arrayIndex, socketType, socketIndex) {
+  if (!isEditingAllowed()) return false;
   const runeId = getSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex);
   const rune = runeCatalog[runeId];
-  if (!rune || rune.socket !== socketType) return false;
+  if (!rune || rune.socket !== socketType || !isRuneCompatibleWithWeapon(rune.id, selectedWeapon)) {
+    showToast(`${rune?.name || '이 룬'}은(는) 현재 무기에 장착할 수 없습니다.`);
+    return false;
+  }
   const sameSocket = payload.weaponId === selectedWeapon && payload.arrayIndex === arrayIndex && payload.socketType === socketType && payload.socketIndex === socketIndex;
   if (sameSocket) return true;
   const destinationId = getSocketRune(selectedWeapon, arrayIndex, socketType, socketIndex);
@@ -580,12 +793,21 @@ function dropOnUseSlot(event, targetIndex) {
     const incoming = source >= 0 ? inventorySlots[source] : null;
     if (!incoming) return;
     const previous = itemUseSlots[targetIndex];
-    itemUseSlots[targetIndex] = incoming;
-    inventorySlots[source] = previous;
+    if (canStackEntries(incoming, previous)) {
+      if (mergeEntries(incoming, previous)) inventorySlots[source] = null;
+    } else {
+      itemUseSlots[targetIndex] = incoming;
+      inventorySlots[source] = previous;
+    }
   } else if (payload.source === 'useSlot') {
     const previous = itemUseSlots[targetIndex];
-    itemUseSlots[targetIndex] = itemUseSlots[payload.slotIndex];
-    itemUseSlots[payload.slotIndex] = previous;
+    const incoming = itemUseSlots[payload.slotIndex];
+    if (canStackEntries(incoming, previous)) {
+      if (mergeEntries(incoming, previous)) itemUseSlots[payload.slotIndex] = null;
+    } else {
+      itemUseSlots[targetIndex] = incoming;
+      itemUseSlots[payload.slotIndex] = previous;
+    }
   }
   selectedInventoryUid = null;
   focusedSocket = null;
@@ -603,6 +825,11 @@ function moveUseSlotToInventory(sourceIndex, targetSlot = -1) {
     return false;
   }
   const previous = inventorySlots[destination];
+  if (canStackEntries(entry, previous)) {
+    if (mergeEntries(entry, previous)) itemUseSlots[sourceIndex] = null;
+    renderInventory();
+    return true;
+  }
   if (previous && (allCatalog()[previous.itemId]?.kind !== 'item' || previous.itemId === 'gold') && firstEmptyInventorySlot() < 0) {
     showToast('보관함에 교환할 빈 슬롯이 없습니다.');
     return false;
@@ -620,6 +847,27 @@ function moveUseSlotToInventory(sourceIndex, targetSlot = -1) {
 function selectUseSlot(index, event) {
   event?.stopPropagation();
   const entry = itemUseSlots[index];
+  if (!isEditingAllowed()) {
+    if (entry) {
+      detailSelection = { type:'catalog', id:entry.itemId };
+      renderDetails();
+    }
+    return;
+  }
+  if (heldEntry) {
+    placeHeldInUseSlot(index);
+    return;
+  }
+  if (entry) {
+    heldSnapshot = captureHeldSnapshot();
+    itemUseSlots[index] = null;
+    heldEntry = entry;
+    heldOrigin = { source:'useSlot', slotIndex:index };
+    detailSelection = { type:'catalog', id:entry.itemId };
+    renderInventory();
+    renderDetails();
+    return;
+  }
   selectedInventoryUid = null;
   focusedSocket = null;
   if (entry) {
@@ -629,10 +877,86 @@ function selectUseSlot(index, event) {
   renderInventory();
 }
 
+function placeHeldInUseSlot(index) {
+  const item = heldEntry ? itemCatalog[heldEntry.itemId] : null;
+  if (!item || item.id === 'gold') {
+    showToast('사용 가능한 아이템만 배치할 수 있습니다.');
+    return false;
+  }
+  const target = itemUseSlots[index];
+  if (canStackEntries(heldEntry, target)) {
+    const fullyMerged = mergeEntries(heldEntry, target);
+    if (fullyMerged) {
+      heldEntry = null;
+      heldOrigin = null;
+      heldSnapshot = null;
+    }
+  } else {
+    itemUseSlots[index] = heldEntry;
+    heldEntry = target;
+    if (!target) {
+      heldOrigin = null;
+      heldSnapshot = null;
+    }
+  }
+  renderInventory();
+  renderDetails();
+  return true;
+}
+
 function allowWeaponDiscard(event) {
   if (dragPayload?.source !== 'weapon') return;
   event.preventDefault();
   if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+}
+
+function allowOutsideDiscard(event) {
+  if (!dragPayload) return;
+  if (dragPayload.source === 'socket' && !isEditingAllowed()) return;
+  event.preventDefault();
+  if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+}
+
+function discardOutside(event) {
+  event.preventDefault();
+  const payload = dragPayload;
+  if (!payload) return;
+  if (payload.source === 'weapon') {
+    discardWeapon(payload.weaponId);
+  } else if (payload.source === 'inventory') {
+    const entry = removeInventoryEntry(payload.inventoryUid);
+    if (entry) floorDrops.push({ type:'entry', data:entry });
+  } else if (payload.source === 'useSlot') {
+    const entry = itemUseSlots[payload.slotIndex];
+    itemUseSlots[payload.slotIndex] = null;
+    if (entry) floorDrops.push({ type:'entry', data:entry });
+  } else if (payload.source === 'socket' && isEditingAllowed()) {
+    const runeId = getSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex);
+    if (runeId) {
+      setSocketRune(payload.weaponId, payload.arrayIndex, payload.socketType, payload.socketIndex, null);
+      floorDrops.push({ type:'entry', data:{ uid:`floor-${++inventorySequence}`, itemId:runeId, isNew:false } });
+    }
+  }
+  selectedInventoryUid = null;
+  focusedSocket = null;
+  renderInventory();
+  renderArrays();
+  renderDetails();
+  showToast('바닥에 버렸습니다.');
+  endEntryDrag();
+}
+
+function dropHeldOutside(event) {
+  if (!heldEntry || document.body.classList.contains('closed')) return;
+  event?.stopPropagation();
+  floorDrops.push({ type:'entry', data:heldEntry });
+  heldEntry = null;
+  heldOrigin = null;
+  heldSnapshot = null;
+  renderInventory();
+  renderArrays();
+  renderDetails();
+  showToast('바닥에 버렸습니다.');
 }
 
 function discardDraggedWeapon(event) {
@@ -644,20 +968,20 @@ function discardDraggedWeapon(event) {
 }
 
 function discardSelectedWeapon() {
+  if (!isEditingAllowed()) {
+    showToast('현재 장소에서는 무기를 버릴 수 없습니다.');
+    return;
+  }
   discardWeapon(selectedWeapon);
 }
 
 function discardWeapon(weaponId) {
   if (!weaponId || !weapons[weaponId]) return;
-  const ids = Object.keys(weapons);
-  if (ids.length <= 1) {
-    showToast('마지막 무기는 버릴 수 없습니다.');
-    return;
-  }
   const discardedName = weapons[weaponId].name;
+  floorDrops.push({ type:'weapon', data:JSON.parse(JSON.stringify(weapons[weaponId])) });
   delete weapons[weaponId];
-  selectedWeapon = Object.keys(weapons)[0];
-  detailSelection = { type:'weapon', id:selectedWeapon };
+  selectedWeapon = Object.keys(weapons)[0] || null;
+  detailSelection = selectedWeapon ? { type:'weapon', id:selectedWeapon } : { type:'none' };
   selectedInventoryUid = null;
   focusedSocket = null;
   renderWeapons();
@@ -673,8 +997,12 @@ function moveInventoryEntry(uid, targetSlot) {
   const destination = targetSlot >= 0 ? targetSlot : firstEmptyInventorySlot();
   if (destination < 0 || destination === sourceSlot) return false;
   const destinationEntry = inventorySlots[destination];
-  inventorySlots[destination] = inventorySlots[sourceSlot];
-  inventorySlots[sourceSlot] = destinationEntry;
+  if (canStackEntries(inventorySlots[sourceSlot], destinationEntry)) {
+    if (mergeEntries(inventorySlots[sourceSlot], destinationEntry)) inventorySlots[sourceSlot] = null;
+  } else {
+    inventorySlots[destination] = inventorySlots[sourceSlot];
+    inventorySlots[sourceSlot] = destinationEntry;
+  }
   selectedInventoryUid = uid;
   focusedSocket = null;
   detailSelection = { type:'inventory', uid };
@@ -808,14 +1136,29 @@ function showToast(message) {
 }
 
 function toggleInventory(open) {
+  if (!open) cancelHeld();
   document.body.classList.toggle('closed', !open);
 }
 
 document.addEventListener('keydown', event => {
-  if (event.key.toLowerCase() === 'e') {
+  if (event.key.toLowerCase() === 'e' && !event.repeat) {
     toggleInventory(document.body.classList.contains('closed'));
+    event.preventDefault();
+    return;
   }
-});
+  if (event.key === 'Escape' && !document.body.classList.contains('closed')) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    toggleInventory(false);
+  }
+}, true);
+
+document.addEventListener('contextmenu', event => {
+  if (!heldEntry) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  cancelHeld();
+}, true);
 
 const inventoryShell = document.querySelector('.inventory-shell');
 inventoryShell.addEventListener('click', event => {
@@ -824,7 +1167,8 @@ inventoryShell.addEventListener('click', event => {
 });
 inventoryShell.addEventListener('contextmenu', event => {
   event.preventDefault();
-  clearSelection(event);
+  if (heldEntry) cancelHeld();
+  else clearSelection(event);
 });
 
 renderInventory();
