@@ -1,4 +1,4 @@
-name: Import inventory UI and deploy Pages
+name: Deploy inventory UI to GitHub Pages
 
 on:
   push:
@@ -6,15 +6,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
-env:
-  SOURCE_URL: https://roguelike-inventory-preview.skadlf1412.chatgpt.site/inventory-ui-preview.html
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  import-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -22,21 +23,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Download existing inventory UI
-        run: |
-          curl --fail --location --retry 3 "$SOURCE_URL" --output index.html
-          test -s index.html
-
-      - name: Save UI source in repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          if ! git diff --cached --quiet; then
-            git commit -m "Import existing inventory UI"
-            git push origin HEAD:main
-          fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
