@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>타일맵 · 캐릭터 비율 테스트</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b0e12;--panel:#151a21;--line:#303844;--text:#edf2f7;--muted:#9aa6b2;--accent:#58d6b6;--tile:#202832;--grid:#4b5868}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif}
+    body{display:grid;grid-template-columns:minmax(0,1fr) 286px;gap:16px;padding:16px;overflow:hidden}
+    main{min-width:0;display:flex;flex-direction:column;gap:10px}
+    .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:38px}
+    h1{margin:0;font-size:18px}.hint{color:var(--muted);font-size:12px}.back{color:#d8e0e8;text-decoration:none;border:1px solid var(--line);padding:7px 10px;border-radius:6px}.back:hover{border-color:var(--accent);color:var(--accent)}
+    .camera-wrap{min-height:0;flex:1;display:grid;place-items:center;background:#080a0d;border:1px solid var(--line);padding:10px}
+    canvas{display:block;width:min(100%,calc((100vh - 92px) * 16 / 9));height:auto;aspect-ratio:16/9;background:#11161c;border:1px solid #3c4652;box-shadow:0 18px 52px #0009}
+    aside{min-height:0;overflow:auto;background:var(--panel);border:1px solid var(--line);padding:16px}
+    h2{font-size:15px;margin:0 0 14px}.field{margin-bottom:13px}.field label{display:flex;justify-content:space-between;gap:10px;color:#cad2db;font-size:12px;margin-bottom:6px}.field input{width:100%;height:34px;padding:0 9px;border:1px solid var(--line);border-radius:5px;background:#0e1217;color:var(--text);font:inherit}.field input:focus{outline:1px solid var(--accent);border-color:var(--accent)}
+    .info{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}.info-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;color:var(--muted);font-size:12px}.info-row strong{color:var(--text);font-weight:600;text-align:right}.foot{margin-top:14px;color:#7f8b97;font-size:11px;line-height:1.55}
+    @media(max-width:850px){body{grid-template-columns:1fr;overflow:auto}aside{overflow:visible}canvas{width:100%}}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="toolbar"><div><h1>타일맵 · 캐릭터 비율 테스트</h1><div class="hint">화면을 클릭한 뒤 WASD로 이동</div></div><a class="back" href="./">인벤토리 UI로 돌아가기</a></div>
+    <div class="camera-wrap"><canvas id="game" width="1920" height="1080" tabindex="0" aria-label="16대 9 게임 카메라 테스트 화면"></canvas></div>
+  </main>
+  <aside>
+    <h2>실시간 설정</h2>
+    <div class="field"><label for="tilePx"><span>타일 원본 픽셀 크기</span><span>px</span></label><input id="tilePx" type="number" min="1" step="1" value="256"></div>
+    <div class="field"><label for="charW"><span>캐릭터 가로 크기</span><span>타일</span></label><input id="charW" type="number" min="0.1" step="0.1" value="1"></div>
+    <div class="field"><label for="charH"><span>캐릭터 세로 크기</span><span>타일</span></label><input id="charH" type="number" min="0.1" step="0.1" value="2"></div>
+    <div class="field"><label for="viewW"><span>FHD 화면 가로 표시 수</span><span>타일</span></label><input id="viewW" type="number" min="4" max="100" step="1" value="40"></div>
+    <div class="field"><label for="roomW"><span>방 가로 크기</span><span>타일</span></label><input id="roomW" type="number" min="1" max="200" step="1" value="40"></div>
+    <div class="field"><label for="roomH"><span>방 세로 크기</span><span>타일</span></label><input id="roomH" type="number" min="1" max="200" step="1" value="40"></div>
+    <div class="info" id="info"></div>
+    <div class="foot">256px은 원본 리소스 해상도입니다. 화면 표시 크기는 카메라 가로 시야를 기준으로 자동 계산됩니다.</div>
+  </aside>
+  <script>
+    const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d');
+    const ids=['tilePx','charW','charH','viewW','roomW','roomH'];
+    const inputs=Object.fromEntries(ids.map(id=>[id,document.querySelector('#'+id)]));
+    const keys=new Set(); let last=performance.now();
+    const state={tilePx:256,charW:1,charH:2,viewW:40,roomW:40,roomH:40,x:20,y:20};
+    const read=()=>{for(const id of ids){const n=Number(inputs[id].value);if(Number.isFinite(n)&&n>0)state[id]=n}state.x=Math.min(Math.max(state.x,state.charW/2),Math.max(state.charW/2,state.roomW-state.charW/2));state.y=Math.min(Math.max(state.y,state.charH),Math.max(state.charH,state.roomH));updateInfo()};
+    const fmt=n=>Number.isInteger(n)?String(n):n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+    function updateInfo(){const viewH=state.viewW*9/16;document.querySelector('#info').innerHTML=[['타일 원본 크기',`${fmt(state.tilePx)} × ${fmt(state.tilePx)}px`],['캐릭터 원본 예상 크기',`${fmt(state.tilePx*state.charW)} × ${fmt(state.tilePx*state.charH)}px`],['캐릭터 타일 크기',`${fmt(state.charW)} × ${fmt(state.charH)}타일`],['현재 카메라 가로 시야',`${fmt(state.viewW)}타일`],['현재 카메라 세로 시야',`${fmt(viewH)}타일`],['방 크기',`${fmt(state.roomW)} × ${fmt(state.roomH)}타일`]].map(([a,b])=>`<div class="info-row"><span>${a}</span><strong>${b}</strong></div>`).join('')}
+    ids.forEach(id=>inputs[id].addEventListener('input',read));
+    addEventListener('keydown',e=>{if(['w','a','s','d'].includes(e.key.toLowerCase())&&document.activeElement===canvas){keys.add(e.key.toLowerCase());e.preventDefault()}});
+    addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));canvas.addEventListener('click',()=>canvas.focus());
+    function draw(now){const dt=Math.min((now-last)/1000,.05);last=now;const speed=7;let dx=(keys.has('d')?1:0)-(keys.has('a')?1:0),dy=(keys.has('s')?1:0)-(keys.has('w')?1:0);if(dx||dy){const l=Math.hypot(dx,dy);dx/=l;dy/=l;state.x=Math.min(Math.max(state.x+dx*speed*dt,state.charW/2),Math.max(state.charW/2,state.roomW-state.charW/2));state.y=Math.min(Math.max(state.y+dy*speed*dt,state.charH),Math.max(state.charH,state.roomH))}
+      const W=canvas.width,H=canvas.height,viewH=state.viewW*H/W,px=W/state.viewW;
+      let camX=state.x-state.viewW/2,camY=state.y-viewH/2;camX=Math.max(0,Math.min(camX,state.roomW-state.viewW));camY=Math.max(0,Math.min(camY,state.roomH-viewH));if(state.roomW<state.viewW)camX=(state.roomW-state.viewW)/2;if(state.roomH<viewH)camY=(state.roomH-viewH)/2;
+      ctx.fillStyle='#080b0f';ctx.fillRect(0,0,W,H);ctx.fillStyle='#1c242d';ctx.fillRect((0-camX)*px,(0-camY)*px,state.roomW*px,state.roomH*px);
+      ctx.beginPath();ctx.strokeStyle='#445262';ctx.lineWidth=1;const sx=Math.max(0,Math.floor(camX)),ex=Math.min(state.roomW,Math.ceil(camX+state.viewW)),sy=Math.max(0,Math.floor(camY)),ey=Math.min(state.roomH,Math.ceil(camY+viewH));for(let x=sx;x<=ex;x++){const p=Math.round((x-camX)*px)+.5;ctx.moveTo(p,Math.max(0,(sy-camY)*px));ctx.lineTo(p,Math.min(H,(ey-camY)*px))}for(let y=sy;y<=ey;y++){const p=Math.round((y-camY)*px)+.5;ctx.moveTo(Math.max(0,(sx-camX)*px),p);ctx.lineTo(Math.min(W,(ex-camX)*px),p)}ctx.stroke();
+      ctx.strokeStyle='#f1c75b';ctx.lineWidth=5;ctx.strokeRect((0-camX)*px,(0-camY)*px,state.roomW*px,state.roomH*px);
+      const cx=(state.x-camX)*px,feet=(state.y-camY)*px,cw=state.charW*px,ch=state.charH*px;ctx.fillStyle='rgba(74,210,176,.88)';ctx.fillRect(cx-cw/2,feet-ch,cw,ch);ctx.strokeStyle='#bffdec';ctx.lineWidth=3;ctx.strokeRect(cx-cw/2,feet-ch,cw,ch);ctx.beginPath();ctx.fillStyle='#ff6b6b';ctx.arc(cx,feet,Math.max(5,px*.09),0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.moveTo(cx-10,feet);ctx.lineTo(cx+10,feet);ctx.moveTo(cx,feet-10);ctx.lineTo(cx,feet+10);ctx.stroke();
+      ctx.fillStyle='rgba(7,10,13,.78)';ctx.fillRect(18,18,330,58);ctx.fillStyle='#e7edf3';ctx.font='24px sans-serif';ctx.fillText(`1타일 = ${fmt(px)} 화면 px`,32,52);ctx.fillStyle='#a9b4bf';ctx.font='18px sans-serif';ctx.fillText(`캐릭터 발 위치 ${fmt(state.x)}, ${fmt(state.y)}`,32,72);requestAnimationFrame(draw)}
+    read();canvas.focus();requestAnimationFrame(draw);
+  </script>
+</body>
+</html>
