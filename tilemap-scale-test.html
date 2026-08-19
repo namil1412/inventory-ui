@@ -9,8 +9,6 @@
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif}
     body{overflow:hidden}
     main{position:fixed;inset:0;display:grid;place-items:center;background:#080a0d}
-    .toolbar{position:fixed;z-index:4;left:18px;top:16px;padding:9px 12px;border:1px solid rgba(70,82,97,.72);border-radius:6px;background:rgba(8,11,15,.84);pointer-events:none}
-    h1{margin:0;font-size:16px}.hint{color:var(--muted);font-size:11px;margin-top:3px}
     .camera-wrap{width:100%;height:100%;display:grid;place-items:center;background:#080a0d}
     canvas{display:block;width:min(100vw,calc(100vh * 16 / 9));height:auto;max-height:100vh;aspect-ratio:16/9;background:#11161c;box-shadow:0 18px 52px #0009}
     aside{position:fixed;z-index:8;right:0;top:0;width:300px;height:100vh;overflow:auto;background:rgba(21,26,33,.98);border-left:1px solid var(--line);padding:18px;transform:translateX(100%);transition:transform 220ms ease;box-shadow:-16px 0 38px rgba(0,0,0,.38)}
@@ -21,12 +19,11 @@
     .presets{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:8px 0 12px}.preset,.test-button,.reset-button{border:1px solid var(--line);border-radius:5px;background:#0e1217;color:#cbd4dc;cursor:pointer}.preset{padding:7px 2px;font-size:11px}.preset:hover,.preset.active,.test-button:hover,.reset-button:hover{border-color:var(--accent);color:var(--accent)}.preset.active{background:#18322d}
     .test-actions{display:grid;grid-template-columns:1fr auto;gap:7px;margin:4px 0 12px}.test-button,.reset-button{min-height:36px;padding:7px 9px}.test-button{background:#17312c;color:#d9fff5;border-color:#347b6a}.test-button.testing{color:#ffd97a;border-color:#c49532;background:#342a14}.measurement{padding:10px;border:1px solid var(--line);background:#0e1217;border-radius:5px;font-size:12px;line-height:1.65}.measurement strong{color:var(--accent)}
     .info{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}.info-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;color:var(--muted);font-size:12px}.info-row strong{color:var(--text);font-weight:600;text-align:right}.foot{margin-top:14px;color:#7f8b97;font-size:11px;line-height:1.55}
-    @media(max-width:600px){aside{width:min(300px,calc(100vw - 58px))}body.settings-open .settings-toggle{right:min(314px,calc(100vw - 44px))}.toolbar{max-width:calc(100vw - 82px)}}
+    @media(max-width:600px){aside{width:min(300px,calc(100vw - 58px))}body.settings-open .settings-toggle{right:min(314px,calc(100vw - 44px))}}
   </style>
 </head>
 <body>
   <main>
-    <div class="toolbar"><h1>타일맵 · 이동 속도 테스트</h1><div class="hint">WASD 이동 · E 인벤토리</div></div>
     <div class="camera-wrap"><canvas id="game" width="1920" height="1080" tabindex="0" aria-label="16대 9 게임 카메라 테스트 화면"></canvas></div>
   </main>
   <button class="settings-toggle" id="settingsToggle" type="button" aria-controls="settingsPanel" aria-expanded="false"><span>⚙</span>설정</button>
@@ -72,7 +69,7 @@
       ctx.beginPath();ctx.strokeStyle='#445262';ctx.lineWidth=1;const sx=Math.max(0,Math.floor(camX)),ex=Math.min(state.roomW,Math.ceil(camX+state.viewW)),sy=Math.max(0,Math.floor(camY)),ey=Math.min(state.roomH,Math.ceil(camY+viewH));for(let x=sx;x<=ex;x++){const p=Math.round((x-camX)*px)+.5;ctx.moveTo(p,Math.max(0,(sy-camY)*px));ctx.lineTo(p,Math.min(H,(ey-camY)*px))}for(let y=sy;y<=ey;y++){const p=Math.round((y-camY)*px)+.5;ctx.moveTo(Math.max(0,(sx-camX)*px),p);ctx.lineTo(Math.min(W,(ex-camX)*px),p)}ctx.stroke();
       ctx.strokeStyle='#f1c75b';ctx.lineWidth=5;ctx.strokeRect((0-camX)*px,(0-camY)*px,state.roomW*px,state.roomH*px);if(state.test){drawMarker(state.test.x,state.test.y,'#ffd166','시작',camX,camY,px);if(state.test.done)drawMarker(state.test.endX,state.test.endY,'#ff7b72','도착',camX,camY,px)}
       const cx=(state.x-camX)*px,feet=(state.y-camY)*px,cw=state.charW*px,ch=state.charH*px;ctx.fillStyle='rgba(74,210,176,.88)';ctx.fillRect(cx-cw/2,feet-ch,cw,ch);ctx.strokeStyle='#bffdec';ctx.lineWidth=3;ctx.strokeRect(cx-cw/2,feet-ch,cw,ch);ctx.beginPath();ctx.fillStyle='#ff6b6b';ctx.arc(cx,feet,Math.max(5,px*.09),0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.moveTo(cx-10,feet);ctx.lineTo(cx+10,feet);ctx.moveTo(cx,feet-10);ctx.lineTo(cx,feet+10);ctx.stroke();
-      ctx.fillStyle='rgba(7,10,13,.82)';ctx.fillRect(18,18,390,92);ctx.fillStyle='#e7edf3';ctx.font='24px sans-serif';ctx.fillText(`이동 속도 ${state.speed.toFixed(1)} 타일/초`,32,49);ctx.fillStyle='#a9b4bf';ctx.font='18px sans-serif';ctx.fillText(`이동 거리 ${state.totalDistance.toFixed(1)} 타일`,32,76);ctx.fillText(`1타일 = ${fmt(px)} 화면 px`,32,100);if(state.test&&!state.test.done)updateMeasurement();requestAnimationFrame(draw)}
+      if(state.test&&!state.test.done)updateMeasurement();requestAnimationFrame(draw)}
     read();canvas.focus();requestAnimationFrame(draw);
   </script>
 </body>
