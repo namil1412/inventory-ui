@@ -763,24 +763,19 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
     }
     .tool-link:hover { color: #111; background: var(--gold); }
+  
+    .tilemap-test-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #080b0f;
+    }
   </style>
 </head>
-<body>
-  <a class="tool-link" href="./tilemap-scale-test.html">타일맵 비율 테스트</a>
-
-  <div class="game-world" aria-hidden="true">
-    <div class="floor-grid"></div>
-    <div class="world-wall wall-a"></div>
-    <div class="world-wall wall-b"></div>
-    <div class="world-wall wall-c"></div>
-    <div class="world-character"></div>
-    <div class="world-enemy enemy-a"></div>
-    <div class="world-enemy enemy-b"></div>
-    <div class="world-enemy enemy-c"></div>
-    <div class="world-hud">
-      <div class="hud-bars"><div class="hud-line"></div><div class="hud-line mana"></div></div>
-      <div>18층 · 봉인 연구동</div>
-    </div>
+<body class="closed">
+  <div class="game-world">
+    <iframe class="tilemap-test-frame" src="./tilemap-scale-test.html" title="타일맵과 캐릭터 이동 테스트"></iframe>
   </div>
 
   <div class="pause-shade" onclick="dropHeldOutside(event)" ondragover="allowOutsideDiscard(event)" ondrop="discardOutside(event)"></div>
@@ -1347,5 +1342,14 @@
     renderDetails();
   </script>
   <script src="./inventory-ui.js?v=e5f03104"></script>
+
+  <script>
+    window.addEventListener('message', event => {
+      if (event.source !== document.querySelector('.tilemap-test-frame')?.contentWindow) return;
+      if (event.data?.type === 'toggle-inventory') {
+        toggleInventory(document.body.classList.contains('closed'));
+      }
+    });
+  </script>
 </body>
 </html>
