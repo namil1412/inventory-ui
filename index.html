@@ -746,9 +746,28 @@
       .details-content { padding-top: 15px; }
       .detail-hero { height: 108px; }
     }
+  
+    .tool-link {
+      position: fixed;
+      z-index: 50;
+      left: 22px;
+      bottom: 22px;
+      padding: 10px 14px;
+      border: 1px solid rgba(208, 168, 91, .62);
+      color: #ead7aa;
+      background: rgba(12, 15, 17, .92);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+    }
+    .tool-link:hover { color: #111; background: var(--gold); }
   </style>
 </head>
 <body>
+  <a class="tool-link" href="./tilemap-scale-test.html">타일맵 비율 테스트</a>
+
   <div class="game-world" aria-hidden="true">
     <div class="floor-grid"></div>
     <div class="world-wall wall-a"></div>
